@@ -13,7 +13,7 @@ const content = {
       h1: 'El primer programa de Ad Ops diseñado para el talento joven de LATAM',
       subtitle: 'Aprende las herramientas que usan las agencias globales y trabaja desde LATAM ganando en dólares.',
       stats: [
-        { value: '4 semanas', label: 'Programa intensivo' },
+        { value: '5 semanas', label: 'Programa intensivo' },
         { value: 'USD', label: 'Desde el día 1' },
         { value: '0', label: 'Competidores en LATAM' },
         { value: '20', label: 'Cupos beta' },
@@ -44,6 +44,11 @@ const content = {
           week: 'Semana 4',
           title: 'Práctica Real + Bootcamp',
           content: 'Sprint final con casos reales de agencias. Bootcamp presencial en Cali. Presentación de portafolio y conexión con el pool de talento.',
+        },
+        {
+          week: 'Semana 5',
+          title: 'Empleabilidad: LinkedIn, CV & Entrevistas',
+          content: 'Construimos tu perfil de LinkedIn optimizado para agencias globales, tu CV en inglés y español, y te preparamos para entrevistas técnicas y culturales. Conexión directa con el pool de talento certificado.',
         },
       ],
       tools: 'Herramientas que dominarás',
@@ -137,7 +142,6 @@ const content = {
       currency: 'USD',
       cop: 'Aprox. $820,000 COP',
       paymentOption: '3 cuotas de $70 USD sin interés',
-      guarantee: 'Garantía de devolución 15 días',
       futurePrice: '$297 USD',
       futurePriceLabel: 'Precio regular',
       betaBox: {
@@ -148,12 +152,12 @@ const content = {
       },
       cta: 'Aplica ahora',
       includes: [
-        '4 semanas de programa intensivo',
+        '5 semanas de programa intensivo',
         'Acceso a comunidad permanente',
         'Certificado Sprintech Academy',
         'Pool de talento certificado',
         'Bootcamp presencial en Cali',
-        'Garantía 15 días',
+        'Preparación CV, LinkedIn y entrevistas',
       ],
     },
     faq: {
@@ -169,7 +173,7 @@ const content = {
         },
         {
           q: '¿Qué pasa si no consigo trabajo?',
-          a: 'Ofrecemos garantía de devolución de 15 días. Además, te mantenemos en el pool de talento certificado y seguimos acompañándote con oportunidades laborales.',
+          a: 'Te mantenemos en el pool de talento certificado y seguimos acompañándote activamente con oportunidades laborales en agencias aliadas.',
         },
         {
           q: '¿Cuánto tiempo debo dedicar?',
@@ -272,7 +276,7 @@ const content = {
       h1: 'The first Ad Ops program designed for LATAM\'s young talent',
       subtitle: 'Learn the tools used by global agencies and work from LATAM earning in dollars.',
       stats: [
-        { value: '4 weeks', label: 'Intensive program' },
+        { value: '5 weeks', label: 'Intensive program' },
         { value: 'USD', label: 'From day 1' },
         { value: '0', label: 'Competitors in LATAM' },
         { value: '20', label: 'Beta spots' },
@@ -303,6 +307,11 @@ const content = {
           week: 'Week 4',
           title: 'Real Practice + Bootcamp',
           content: 'Final sprint with real agency cases. In-person bootcamp in Cali. Portfolio presentation and talent pool connection.',
+        },
+        {
+          week: 'Week 5',
+          title: 'Employability: LinkedIn, CV & Interviews',
+          content: 'We build your LinkedIn profile optimized for global agencies, your CV in English and Spanish, and prepare you for technical and cultural interviews. Direct connection to the certified talent pool.',
         },
       ],
       tools: 'Tools you will master',
@@ -396,7 +405,6 @@ const content = {
       currency: 'USD',
       cop: 'Approx. $820,000 COP',
       paymentOption: '3 installments of $70 USD interest-free',
-      guarantee: '15-day money-back guarantee',
       futurePrice: '$297 USD',
       futurePriceLabel: 'Regular price',
       betaBox: {
@@ -407,12 +415,12 @@ const content = {
       },
       cta: 'Apply now',
       includes: [
-        '4-week intensive program',
+        '5-week intensive program',
         'Permanent community access',
         'Sprintech Academy certificate',
         'Certified talent pool',
         'In-person bootcamp in Cali',
-        '15-day guarantee',
+        'CV, LinkedIn & interview preparation',
       ],
     },
     faq: {
@@ -428,7 +436,7 @@ const content = {
         },
         {
           q: 'What if I don\'t find a job?',
-          a: 'We offer a 15-day money-back guarantee. We also keep you in the certified talent pool and continue supporting you with job opportunities.',
+          a: 'We keep you in the certified talent pool and actively continue supporting you with job opportunities at partner agencies.',
         },
         {
           q: 'How much time do I need to dedicate?',

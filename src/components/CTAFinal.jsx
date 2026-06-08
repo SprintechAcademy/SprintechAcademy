@@ -2,9 +2,12 @@ import { useContext, useState } from 'react';
 import { LangContext } from '../App';
 import content from '../i18n/content';
 import useScrollAnim from '../hooks/useScrollAnim';
+import { supabase } from '../lib/supabase';
 
-function StudentForm({ t }) {
+function StudentForm({ t, lang }) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '', email: '', city: '', status: '', career: '', source: '',
   });
@@ -13,8 +16,26 @@ function StudentForm({ t }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    if (supabase) {
+      const { error: dbError } = await supabase
+        .from('student_leads')
+        .insert([{ ...formData, lang }]);
+
+      if (dbError) {
+        setError(lang === 'es'
+          ? 'Hubo un error al enviar. Por favor intenta de nuevo.'
+          : 'There was an error submitting. Please try again.');
+        setLoading(false);
+        return;
+      }
+    }
+
+    setLoading(false);
     setSubmitted(true);
   };
 
@@ -31,40 +52,21 @@ function StudentForm({ t }) {
     <form className="cta-form" onSubmit={handleSubmit} noValidate>
       <h3 className="cta-form__title">{t.title}</h3>
 
+      {error && <p className="form-error">{error}</p>}
+
       <div className="form-group">
         <label>{t.fields.name} *</label>
-        <input
-          type="text"
-          name="name"
-          required
-          value={formData.name}
-          onChange={handleChange}
-          placeholder={t.fields.name}
-        />
+        <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder={t.fields.name} />
       </div>
 
       <div className="form-group">
         <label>{t.fields.email} *</label>
-        <input
-          type="email"
-          name="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          placeholder={t.fields.email}
-        />
+        <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder={t.fields.email} />
       </div>
 
       <div className="form-group">
         <label>{t.fields.city} *</label>
-        <input
-          type="text"
-          name="city"
-          required
-          value={formData.city}
-          onChange={handleChange}
-          placeholder={t.fields.city}
-        />
+        <input type="text" name="city" required value={formData.city} onChange={handleChange} placeholder={t.fields.city} />
       </div>
 
       <div className="form-group">
@@ -79,13 +81,7 @@ function StudentForm({ t }) {
 
       <div className="form-group">
         <label>{t.fields.career}</label>
-        <input
-          type="text"
-          name="career"
-          value={formData.career}
-          onChange={handleChange}
-          placeholder={t.fields.career}
-        />
+        <input type="text" name="career" value={formData.career} onChange={handleChange} placeholder={t.fields.career} />
       </div>
 
       <div className="form-group">
@@ -98,15 +94,17 @@ function StudentForm({ t }) {
         </select>
       </div>
 
-      <button type="submit" className="btn btn--lime btn--full btn--lg">
-        {t.submit}
+      <button type="submit" className="btn btn--lime btn--full btn--lg" disabled={loading}>
+        {loading ? '...' : t.submit}
       </button>
     </form>
   );
 }
 
-function CompanyForm({ t }) {
+function CompanyForm({ t, lang }) {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '', email: '', company: '', size: '', need: '', message: '',
   });
@@ -115,8 +113,26 @@ function CompanyForm({ t }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    if (supabase) {
+      const { error: dbError } = await supabase
+        .from('company_leads')
+        .insert([{ ...formData, lang }]);
+
+      if (dbError) {
+        setError(lang === 'es'
+          ? 'Hubo un error al enviar. Por favor intenta de nuevo.'
+          : 'There was an error submitting. Please try again.');
+        setLoading(false);
+        return;
+      }
+    }
+
+    setLoading(false);
     setSubmitted(true);
   };
 
@@ -133,40 +149,21 @@ function CompanyForm({ t }) {
     <form className="cta-form" onSubmit={handleSubmit} noValidate>
       <h3 className="cta-form__title">{t.title}</h3>
 
+      {error && <p className="form-error">{error}</p>}
+
       <div className="form-group">
         <label>{t.fields.name} *</label>
-        <input
-          type="text"
-          name="name"
-          required
-          value={formData.name}
-          onChange={handleChange}
-          placeholder={t.fields.name}
-        />
+        <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder={t.fields.name} />
       </div>
 
       <div className="form-group">
         <label>{t.fields.email} *</label>
-        <input
-          type="email"
-          name="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-          placeholder={t.fields.email}
-        />
+        <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder={t.fields.email} />
       </div>
 
       <div className="form-group">
         <label>{t.fields.company} *</label>
-        <input
-          type="text"
-          name="company"
-          required
-          value={formData.company}
-          onChange={handleChange}
-          placeholder={t.fields.company}
-        />
+        <input type="text" name="company" required value={formData.company} onChange={handleChange} placeholder={t.fields.company} />
       </div>
 
       <div className="form-group">
@@ -191,17 +188,11 @@ function CompanyForm({ t }) {
 
       <div className="form-group">
         <label>{t.fields.message}</label>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          rows={4}
-          placeholder={t.fields.message}
-        />
+        <textarea name="message" value={formData.message} onChange={handleChange} rows={4} placeholder={t.fields.message} />
       </div>
 
-      <button type="submit" className="btn btn--lime btn--full btn--lg">
-        {t.submit}
+      <button type="submit" className="btn btn--lime btn--full btn--lg" disabled={loading}>
+        {loading ? '...' : t.submit}
       </button>
     </form>
   );
@@ -241,9 +232,9 @@ export default function CTAFinal() {
 
           <div className="cta-final__form">
             {activeTab === 'student' ? (
-              <StudentForm t={t.studentForm} />
+              <StudentForm t={t.studentForm} lang={lang} />
             ) : (
-              <CompanyForm t={t.companyForm} />
+              <CompanyForm t={t.companyForm} lang={lang} />
             )}
           </div>
         </div>
