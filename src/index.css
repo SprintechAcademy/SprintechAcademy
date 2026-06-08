@@ -14,7 +14,8 @@
 
   --max-width: 1200px;
   --padding-desktop: 48px;
-  --padding-mobile: 24px;
+  --padding-tablet: 32px;
+  --padding-mobile: 20px;
   --section-spacing: 96px;
 }
 
@@ -67,7 +68,13 @@ ul {
   padding: 0 var(--padding-desktop);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 var(--padding-tablet);
+  }
+}
+
+@media (max-width: 600px) {
   .container {
     padding: 0 var(--padding-mobile);
   }
