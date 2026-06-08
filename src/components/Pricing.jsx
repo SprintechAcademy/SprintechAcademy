@@ -30,7 +30,6 @@ export default function Pricing() {
             </div>
             <p className="pricing__cop">{t.cop}</p>
             <p className="pricing__payment">{t.paymentOption}</p>
-            <p className="pricing__guarantee">✅ {t.guarantee}</p>
             <p className="pricing__future">
               {t.futurePriceLabel}: <s>{t.futurePrice}</s>
             </p>
