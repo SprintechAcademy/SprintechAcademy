@@ -554,15 +554,9 @@
   margin-bottom: 48px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .community__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .community__grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -622,12 +616,6 @@
 .community__tagline::before { right: calc(50% + 160px); }
 .community__tagline::after { left: calc(50% + 160px); }
 
-@media (max-width: 600px) {
-  .community__tagline::before,
-  .community__tagline::after {
-    display: none;
-  }
-}
 
 /* ===== Pricing ===== */
 .pricing {
@@ -641,11 +629,6 @@
   align-items: start;
 }
 
-@media (max-width: 768px) {
-  .pricing__layout {
-    grid-template-columns: 1fr;
-  }
-}
 
 .pricing__card {
   background: var(--cream);
@@ -1018,11 +1001,6 @@
   margin-bottom: 48px;
 }
 
-@media (max-width: 768px) {
-  .for-companies__cols {
-    grid-template-columns: 1fr;
-  }
-}
 
 .for-companies__col {
   background: var(--white);
@@ -1154,10 +1132,61 @@
   opacity: 0.4;
 }
 
-/* ===== Media Queries ===== */
-@media (max-width: 600px) {
+/* ===================================================
+   RESPONSIVE — all breakpoints
+   =================================================== */
+
+/* ── 1024px — Tablet landscape ── */
+@media (max-width: 1024px) {
+  .navbar__inner {
+    padding: 0 var(--padding-tablet);
+  }
+
+  .navbar__links li a {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .hero__h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+  }
+
+  .opportunity__stats {
+    gap: 36px;
+  }
+
+  .pricing__card {
+    padding: 32px;
+  }
+
+  .pricing__beta-inner {
+    padding: 32px;
+  }
+
+  .for-companies__col {
+    padding: 28px;
+  }
+}
+
+/* ── 768px — Tablet portrait ── */
+@media (max-width: 768px) {
   :root {
-    --section-spacing: 64px;
+    --section-spacing: 80px;
+  }
+
+  /* Navbar */
+  .navbar__inner {
+    padding: 0 var(--padding-tablet);
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 70px;
+  }
+
+  .hero__content {
+    padding-top: 32px;
+    padding-bottom: 56px;
   }
 
   .hero__stats {
@@ -1166,24 +1195,278 @@
 
   .hero__stat {
     padding: 16px 20px;
-    min-width: 100px;
+    min-width: 110px;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero__ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Program */
+  .program__weeks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Problem */
+  .problem__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Opportunity */
+  .opportunity__stats {
+    gap: 28px;
+  }
+
+  /* Methodology */
+  .methodology__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Community */
+  .community__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Pricing */
+  .pricing__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing__card {
+    padding: 28px;
+  }
+
+  .pricing__beta-inner {
+    padding: 28px;
+  }
+
+  /* FAQ */
+  .faq__list {
+    max-width: 100%;
+  }
+
+  /* For Companies */
+  .for-companies__cols {
+    grid-template-columns: 1fr;
+  }
+
+  .for-companies__col {
+    padding: 28px;
+  }
+
+  /* Footer */
+  .footer__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ── 600px — Large mobile ── */
+@media (max-width: 600px) {
+  :root {
+    --section-spacing: 64px;
+  }
+
+  /* Navbar */
+  .navbar__inner {
+    padding: 0 var(--padding-mobile);
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 64px;
+  }
+
+  .hero__badge {
+    font-size: 0.78rem;
+    padding: 6px 16px;
+    margin-bottom: 20px;
+  }
+
+  .hero__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .hero__stat {
+    padding: 14px 12px;
+    min-width: unset;
   }
 
   .hero__stat-value {
     font-size: 1.2rem;
   }
 
+  .hero__stat-label {
+    font-size: 0.75rem;
+  }
+
+  /* Program */
+  .program__weeks {
+    grid-template-columns: 1fr;
+  }
+
+  .program__week-card {
+    padding: 22px;
+  }
+
+  .program__expanded {
+    padding: 22px;
+  }
+
+  /* Problem */
+  .problem__cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Opportunity */
   .opportunity__stats {
-    gap: 32px;
+    gap: 28px;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .footer__top {
-    flex-direction: column;
-    align-items: flex-start;
+  /* Methodology */
+  .methodology__cards {
+    grid-template-columns: 1fr;
   }
 
-  .footer__bottom {
+  .methodology__card {
+    padding: 24px;
+  }
+
+  /* Community */
+  .community__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .community__tagline::before,
+  .community__tagline::after {
+    display: none;
+  }
+
+  /* Pricing */
+  .pricing__price {
+    font-size: 2.8rem;
+  }
+
+  .pricing__card {
+    padding: 22px;
+  }
+
+  .pricing__beta-inner {
+    padding: 24px;
+  }
+
+  .pricing__beta-count {
+    font-size: 3rem;
+  }
+
+  /* FAQ */
+  .faq__question {
+    padding: 16px 18px;
+    font-size: 0.9rem;
+  }
+
+  .faq__answer {
+    padding: 0 18px 16px;
+  }
+
+  /* CTA Final */
+  .cta-final__form {
+    padding: 22px 18px;
+  }
+
+  .cta-tabs {
     flex-direction: column;
-    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .cta-tab {
+    text-align: center;
+  }
+
+  /* For Companies */
+  .for-companies__col {
+    padding: 22px;
+  }
+
+  /* Footer */
+  .footer__nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ── 400px — Small mobile ── */
+@media (max-width: 400px) {
+  html {
+    font-size: 15px;
+  }
+
+  :root {
+    --section-spacing: 56px;
+    --padding-mobile: 16px;
+  }
+
+  .hero__h1 {
+    font-size: 1.85rem;
+  }
+
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .hero__stat {
+    padding: 12px 8px;
+  }
+
+  .hero__stat-value {
+    font-size: 1.1rem;
+  }
+
+  .btn--lg {
+    padding: 14px 20px;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .pricing__price {
+    font-size: 2.4rem;
+  }
+
+  .pricing__card,
+  .pricing__beta-inner,
+  .for-companies__col,
+  .methodology__card,
+  .program__week-card,
+  .cta-final__form {
+    padding: 18px 14px;
+  }
+
+  .community__card {
+    padding: 20px 16px;
+  }
+
+  .opportunity__stat-value {
+    font-size: 2.2rem;
   }
 }
