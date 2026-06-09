@@ -24,10 +24,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`navbar${scrolled ? ' navbar--solid' : ''}`}>
+    <nav className={`navbar${scrolled ? ' navbar--solid' : ' navbar--transparent'}`}>
       <div className="navbar__inner">
         <a href="#" className="navbar__logo">
-          <Logo variant="dark" />
+          <Logo variant={scrolled ? 'lime' : 'dark'} />
         </a>
 
         <ul className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
