@@ -3,7 +3,7 @@ import { LangContext } from '../App';
 import content from '../i18n/content';
 import useScrollAnim from '../hooks/useScrollAnim';
 
-const FREE_SPOTS_REMAINING = 7;
+const FREE_SPOTS_REMAINING = 10;
 
 export default function Pricing() {
   const { lang } = useContext(LangContext);
@@ -47,18 +47,20 @@ export default function Pricing() {
 
           {/* Beta box */}
           <div className="pricing__beta anim-ready" style={{ '--delay': '0.3s' }}>
-            <div className="pricing__beta-inner">
-              <div className="pricing__beta-icon" aria-hidden="true">🎁</div>
-              <h3 className="pricing__beta-title">{t.betaBox.title}</h3>
-              <p className="pricing__beta-desc">{t.betaBox.description}</p>
-              <div className="pricing__beta-counter">
-                <span className="pricing__beta-count">{FREE_SPOTS_REMAINING}</span>
-                <span className="pricing__beta-counter-label">{counterText}</span>
+            <div className="pricing__beta-tag">{t.betaBox.title}</div>
+            <h3 className="pricing__beta-title">{t.betaBox.description}</h3>
+            <div className="pricing__beta-spots">
+              <div className="pricing__beta-spots-bar">
+                <div
+                  className="pricing__beta-spots-fill"
+                  style={{ width: `${(FREE_SPOTS_REMAINING / 10) * 100}%` }}
+                />
               </div>
-              <a href="#registro" className="btn btn--dark btn--full">
-                {t.betaBox.cta}
-              </a>
+              <p className="pricing__beta-spots-label">{counterText}</p>
             </div>
+            <a href="#registro" className="btn btn--lime btn--full">
+              {t.betaBox.cta}
+            </a>
           </div>
         </div>
       </div>
