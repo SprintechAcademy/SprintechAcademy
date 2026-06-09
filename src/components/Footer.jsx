@@ -50,7 +50,7 @@ export default function Footer() {
             ))}
           </nav>
           <div className="footer__social">
-            <a href="https://instagram.com/sprintechacademy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/sprintechacademy?igsh=czY1N3VwdnJmemI0&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <InstagramIcon />
             </a>
             <a href="https://www.linkedin.com/company/sprintech-academy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
