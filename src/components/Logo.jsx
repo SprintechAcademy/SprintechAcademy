@@ -1,6 +1,6 @@
 export default function Logo({ variant = 'lime' }) {
   const sprintechColor = variant === 'lime' ? 'var(--lime)' : 'var(--carbon)';
-  const academyColor = variant === 'lime' ? 'var(--white)' : 'var(--carbon)';
+  const academyColor = 'var(--carbon)';
 
   return (
     <span className="logo-wrap" aria-label="Sprintech Academy">
