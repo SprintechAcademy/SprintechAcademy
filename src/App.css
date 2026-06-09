@@ -67,13 +67,22 @@
   color: var(--white);
   padding: 8px 12px;
   border-radius: 6px;
-  transition: color 0.3s ease, background 0.3s ease;
+  transition: color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
   opacity: 0.85;
 }
 
 .navbar__links li a:hover {
   opacity: 1;
   background: rgba(255,255,255,0.1);
+}
+
+/* Transparent state — dark links on light hero bg */
+.navbar--transparent .navbar__links li a {
+  color: var(--carbon);
+}
+
+.navbar--transparent .navbar__links li a:hover {
+  background: rgba(0,0,0,0.06);
 }
 
 .navbar__actions {
@@ -95,13 +104,28 @@
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 20px;
   padding: 6px 14px;
-  transition: background 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
   opacity: 0.85;
 }
 
 .lang-toggle:hover {
   background: rgba(255,255,255,0.18);
   opacity: 1;
+}
+
+/* Transparent state — dark toggle on light bg */
+.navbar--transparent .lang-toggle {
+  color: var(--carbon);
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.15);
+}
+
+.navbar--transparent .lang-toggle:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.navbar--transparent .lang-active {
+  color: #5a7a00;
 }
 
 .lang-active {

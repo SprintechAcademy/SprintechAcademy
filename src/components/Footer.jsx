@@ -53,7 +53,7 @@ export default function Footer() {
             <a href="https://instagram.com/sprintechacademy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <a href="https://linkedin.com/company/sprintechacademy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/sprintech-academy/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedInIcon />
             </a>
             <a href="https://tiktok.com/@sprintechacademy" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
