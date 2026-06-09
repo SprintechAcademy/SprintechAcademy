@@ -280,9 +280,21 @@
 
 .program__weeks {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(6, 1fr);
   gap: 24px;
   margin-bottom: 48px;
+}
+
+/* 5-card layout: first 2 cards span 3 cols each (2 per row), last 3 span 2 cols each (3 per row) */
+.program__week-card:nth-child(1),
+.program__week-card:nth-child(2) {
+  grid-column: span 3;
+}
+
+.program__week-card:nth-child(3),
+.program__week-card:nth-child(4),
+.program__week-card:nth-child(5) {
+  grid-column: span 2;
 }
 
 .program__week-card {
@@ -1220,9 +1232,17 @@
     justify-content: center;
   }
 
-  /* Program */
+  /* Program — 768px: collapse to 2 equal cols, reset span overrides */
   .program__weeks {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .program__week-card:nth-child(1),
+  .program__week-card:nth-child(2),
+  .program__week-card:nth-child(3),
+  .program__week-card:nth-child(4),
+  .program__week-card:nth-child(5) {
+    grid-column: span 1;
   }
 
   /* Problem */
@@ -1329,6 +1349,10 @@
   /* Program */
   .program__weeks {
     grid-template-columns: 1fr;
+  }
+
+  .program__week-card:nth-child(n) {
+    grid-column: span 1;
   }
 
   .program__week-card {

@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className={`navbar${scrolled ? ' navbar--solid' : ''}`}>
       <div className="navbar__inner">
         <a href="#" className="navbar__logo">
-          <Logo variant="lime" />
+          <Logo variant="dark" />
         </a>
 
         <ul className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
