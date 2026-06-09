@@ -9,14 +9,14 @@ const content = {
       cta: 'Aplica ahora',
     },
     hero: {
-      badge: 'Cohorte Beta 2026 · 20 cupos',
+      badge: 'Cohorte Beta 2026 · 10 cupos gratuitos',
       h1: 'El primer programa de Ad Ops diseñado para el talento joven de LATAM',
       subtitle: 'Aprende las herramientas que usan las agencias globales y trabaja desde LATAM ganando en dólares.',
       stats: [
         { value: '5 semanas', label: 'Programa intensivo' },
         { value: 'USD', label: 'Desde el día 1' },
         { value: '0', label: 'Competidores en LATAM' },
-        { value: '20', label: 'Cupos beta' },
+        { value: '10', label: 'Cupos beta gratuitos' },
       ],
       ctaPrimary: 'Aplica ahora y sé parte de la comunidad',
       ctaSecondary: 'Ver el programa →',
@@ -189,7 +189,7 @@ const content = {
         },
         {
           q: '¿Qué es la cohorte beta gratuita?',
-          a: 'Los primeros 10 estudiantes que se inscriban a la cohorte beta acceden al programa completamente gratis. A cambio, pedimos feedback activo para mejorar el programa. Quedan 7 cupos.',
+          a: 'Los primeros 10 estudiantes que se inscriban a la cohorte beta acceden al programa completamente gratis. A cambio, pedimos feedback activo para mejorar el programa. Quedan 10 cupos.',
         },
       ],
     },
@@ -272,14 +272,14 @@ const content = {
       cta: 'Apply now',
     },
     hero: {
-      badge: 'Beta Cohort 2026 · 20 spots',
+      badge: 'Beta Cohort 2026 · 10 free spots',
       h1: 'The first Ad Ops program designed for LATAM\'s young talent',
       subtitle: 'Learn the tools used by global agencies and work from LATAM earning in dollars.',
       stats: [
         { value: '5 weeks', label: 'Intensive program' },
         { value: 'USD', label: 'From day 1' },
         { value: '0', label: 'Competitors in LATAM' },
-        { value: '20', label: 'Beta spots' },
+        { value: '10', label: 'Free beta spots' },
       ],
       ctaPrimary: 'Apply now and join the community',
       ctaSecondary: 'See the program →',
