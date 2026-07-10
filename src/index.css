@@ -3,6 +3,7 @@
   --carbon: #0F0F0F;
   --white: #FFFFFF;
   --cream: #FAFAF7;
+  --surface: #F2F2EF;
   --lime: #C8F135;
   --purple: #7C3AED;
 
@@ -31,8 +32,8 @@ html {
 
 body {
   font-family: var(--font-poppins);
-  color: var(--white);
-  background: var(--carbon);
+  color: var(--carbon);
+  background: var(--white);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -80,13 +81,13 @@ ul {
 
 /* ===== Section helpers ===== */
 .section--cream {
-  background: var(--cream);
+  background: var(--white);
   color: var(--carbon);
 }
 
 .section--dark {
-  background: var(--carbon);
-  color: var(--white);
+  background: var(--surface);
+  color: var(--carbon);
 }
 
 .section-title {
@@ -113,7 +114,7 @@ ul {
   align-items: center;
   justify-content: center;
   padding: 14px 28px;
-  border-radius: 0;
+  border-radius: 9999px;
   font-family: var(--font-syne);
   font-weight: 600;
   font-size: 0.95rem;
@@ -145,14 +146,14 @@ ul {
 
 .btn--ghost {
   background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255,255,255,0.5);
+  color: var(--carbon);
+  border: 2px solid rgba(0,0,0,0.3);
   padding: 12px 26px;
 }
 
 .btn--ghost:hover {
-  border-color: var(--white);
-  background: rgba(255,255,255,0.08);
+  border-color: var(--carbon);
+  background: rgba(0,0,0,0.06);
 }
 
 .btn--purple {
