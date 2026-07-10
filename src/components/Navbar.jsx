@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import Logo from './Logo';
 import { LangContext } from '../App';
 import content from '../i18n/content';
@@ -6,38 +6,66 @@ import content from '../i18n/content';
 export default function Navbar() {
   const { lang, setLang } = useContext(LangContext);
   const t = content[lang].nav;
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const navLinks = [
-    { label: t.programa, href: '#programa' },
-    { label: t.metodologia, href: '#metodologia' },
-    { label: t.comunidad, href: '#comunidad' },
-    { label: t.precio, href: '#precio' },
-    { label: t.paraEmpresas, href: '#para-empresas' },
-  ];
+  const toggleDropdown = (name) => {
+    setOpenDropdown(openDropdown === name ? null : name);
+  };
 
   return (
-    <nav className={`navbar${scrolled ? ' navbar--solid' : ' navbar--transparent'}`}>
+    <nav className="navbar">
       <div className="navbar__inner">
         <a href="#" className="navbar__logo">
-          <Logo variant={scrolled ? 'lime' : 'dark'} />
+          <Logo />
         </a>
 
         <ul className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} onClick={() => setMenuOpen(false)}>
-                {link.label}
-              </a>
-            </li>
-          ))}
+          <li className="navbar__dropdown">
+            <button
+              className="navbar__dropdown-btn"
+              onClick={() => toggleDropdown('sprinters')}
+            >
+              {t.sprinters}
+              <span className="navbar__chevron">▾</span>
+            </button>
+            {openDropdown === 'sprinters' && (
+              <ul className="navbar__dropdown-menu">
+                <li><a href="#programa" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{t.programa}</a></li>
+                <li><a href="#metodologia" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{t.metodologia}</a></li>
+              </ul>
+            )}
+          </li>
+          <li className="navbar__dropdown">
+            <button
+              className="navbar__dropdown-btn"
+              onClick={() => toggleDropdown('empresas')}
+            >
+              {t.empresas}
+              <span className="navbar__chevron">▾</span>
+            </button>
+            {openDropdown === 'empresas' && (
+              <ul className="navbar__dropdown-menu">
+                <li><a href="#para-empresas" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{t.paraAgencias}</a></li>
+                <li><a href="#para-empresas" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{t.capacitacion}</a></li>
+              </ul>
+            )}
+          </li>
+          <li className="navbar__dropdown">
+            <button
+              className="navbar__dropdown-btn"
+              onClick={() => toggleDropdown('recursos')}
+            >
+              {t.recursos}
+              <span className="navbar__chevron">▾</span>
+            </button>
+            {openDropdown === 'recursos' && (
+              <ul className="navbar__dropdown-menu">
+                <li><a href="#" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{t.blog}</a></li>
+                <li><a href="#comunidad" onClick={() => { setMenuOpen(false); setOpenDropdown(null); }}>{t.comunidad}</a></li>
+              </ul>
+            )}
+          </li>
         </ul>
 
         <div className="navbar__actions">
@@ -50,7 +78,7 @@ export default function Navbar() {
             <span>|</span>
             <span className={lang === 'en' ? 'lang-active' : ''}>EN</span>
           </button>
-          <a href="#registro" className="btn btn--dark">
+          <a href="#registro" className="btn btn--lime">
             {t.cta}
           </a>
           <button

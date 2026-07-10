@@ -1,19 +1,10 @@
 export default function Logo({ variant = 'lime' }) {
-  const sprintechColor = variant === 'lime' ? 'var(--lime)' : 'var(--carbon)';
-  const academyColor = variant === 'lime' ? 'var(--white)' : 'var(--carbon)';
-
   return (
     <span className="logo-wrap" aria-label="Sprintech Academy">
-      <span
-        className="logo-sprintech"
-        style={{ color: sprintechColor }}
-      >
+      <span className="logo-sprintech" style={{ color: 'var(--lime)' }}>
         Sprintech:
       </span>
-      <span
-        className="logo-academy"
-        style={{ color: academyColor }}
-      >
+      <span className="logo-academy" style={{ color: 'var(--white)' }}>
         academy
       </span>
     </span>
