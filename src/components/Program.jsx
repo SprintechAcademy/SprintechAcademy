@@ -1,64 +1,56 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { LangContext } from '../App';
 import content from '../i18n/content';
 import useScrollAnim from '../hooks/useScrollAnim';
-
-const TOOLS = ['CM360', 'Flashtalking', 'DV360', 'Innovid', 'Excel', 'Google Sheets', 'Jira'];
 
 export default function Program() {
   const { lang } = useContext(LangContext);
   const t = content[lang].program;
   const ref = useScrollAnim();
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <section id="programa" className="program section--cream" ref={ref}>
       <div className="container">
-        <div className="anim-ready" style={{ '--delay': '0s' }}>
-          <h2 className="section-title">{t.title}</h2>
-          <p className="section-desc">{t.description}</p>
-        </div>
+        <h2 className="section-title anim-ready" style={{ '--delay': '0s' }}>
+          {t.title}
+        </h2>
 
-        <div className="program__weeks">
-          {t.weeks.map((week, i) => (
-            <div
-              key={i}
-              className="program__week-card anim-ready"
-              style={{ '--delay': `${i * 0.12}s` }}
-            >
-              <div className="program__week-label">{week.week}</div>
-              <h3 className="program__week-title">{week.title}</h3>
-              <p className="program__week-content">{week.content}</p>
+        <div className="program__pillars anim-ready" style={{ '--delay': '0.1s' }}>
+          {t.pillars.map((pillar) => (
+            <div key={pillar.num} className="program__pillar">
+              <span className="program__pillar-num">{pillar.num}</span>
+              <h3 className="program__pillar-title">{pillar.title}</h3>
+              <p className="program__pillar-desc">{pillar.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="program__tools anim-ready" style={{ '--delay': '0.5s' }}>
-          <p className="program__tools-label">{t.tools}</p>
-          <div className="program__tools-list">
-            {TOOLS.map((tool) => (
-              <span key={tool} className="tool-badge">{tool}</span>
+        <div className="program__timeline-wrap anim-ready" style={{ '--delay': '0.2s' }}>
+          <p className="program__timeline-label">{t.weekLabel}</p>
+          <div className="program__timeline">
+            {t.weeks.map((week) => (
+              <div key={week.num} className="program__week-card">
+                <span className="program__week-num">{week.num}</span>
+                <span className="program__week-title">{week.title}</span>
+              </div>
             ))}
           </div>
         </div>
 
-        <button
-          className="btn btn--outline program__toggle"
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded ? t.ctaCollapse : t.ctaToggle}
-        </button>
+        <div className="program__benefits anim-ready" style={{ '--delay': '0.3s' }}>
+          {t.benefits.map((b, i) => (
+            <div key={i} className="program__benefit">
+              <span className="program__benefit-check">✓</span>
+              <span>{b}</span>
+            </div>
+          ))}
+        </div>
 
-        {expanded && (
-          <div className="program__expanded">
-            <h3>{t.expandedTitle}</h3>
-            <p>{t.expandedContent}</p>
-          </div>
-        )}
-
-        <p className="program__footnote anim-ready" style={{ '--delay': '0.6s' }}>
-          {t.footnote}
-        </p>
+        <div className="anim-ready" style={{ '--delay': '0.4s' }}>
+          <a href="#registro" className="program__cta">
+            {t.cta}
+          </a>
+        </div>
       </div>
     </section>
   );

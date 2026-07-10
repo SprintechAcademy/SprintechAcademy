@@ -11,40 +11,34 @@ export default function ForCompanies() {
   return (
     <section id="para-empresas" className="for-companies section--cream" ref={ref}>
       <div className="container">
-        <div className="anim-ready" style={{ '--delay': '0s' }}>
-          <h2 className="section-title">{t.title}</h2>
-          <p className="section-desc">{t.subtitle}</p>
-        </div>
-
+        <h2 className="section-title anim-ready" style={{ '--delay': '0s' }}>
+          {t.title}
+        </h2>
+        <p className="section-desc anim-ready" style={{ '--delay': '0.1s' }}>
+          {t.subtitle}
+        </p>
         <div className="for-companies__cols">
-          <div className="for-companies__col anim-ready" style={{ '--delay': '0.15s' }}>
+          <div className="for-companies__col anim-ready" style={{ '--delay': '0.2s' }}>
             <h3 className="for-companies__col-title">{t.left.title}</h3>
             <p className="for-companies__col-desc">{t.left.description}</p>
             <ul className="for-companies__benefits">
-              {t.left.benefits.map((b, i) => (
-                <li key={i}>✓ {b}</li>
+              {t.left.benefits.map((b) => (
+                <li key={b}><span className="for-companies__check">✓</span> {b}</li>
               ))}
             </ul>
           </div>
-
           <div className="for-companies__col anim-ready" style={{ '--delay': '0.3s' }}>
             <h3 className="for-companies__col-title">{t.right.title}</h3>
             <p className="for-companies__col-desc">{t.right.description}</p>
             <ul className="for-companies__benefits">
-              {t.right.benefits.map((b, i) => (
-                <li key={i}>✓ {b}</li>
+              {t.right.benefits.map((b) => (
+                <li key={b}><span className="for-companies__check">✓</span> {b}</li>
               ))}
             </ul>
           </div>
         </div>
-
-        <div className="for-companies__cta anim-ready" style={{ '--delay': '0.45s' }}>
-          <a href="#registro" className="btn btn--dark btn--lg" onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('registro')?.scrollIntoView({ behavior: 'smooth' });
-            // trigger company tab — handled via URL hash approach
-            window.dispatchEvent(new CustomEvent('openCompanyTab'));
-          }}>
+        <div className="for-companies__cta anim-ready" style={{ '--delay': '0.4s' }}>
+          <a href="#registro" className="btn btn--purple btn--lg">
             {t.cta}
           </a>
         </div>

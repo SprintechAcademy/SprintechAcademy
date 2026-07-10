@@ -9,21 +9,22 @@ export default function Methodology() {
   const ref = useScrollAnim();
 
   return (
-    <section id="metodologia" className="methodology section--white" ref={ref}>
+    <section id="metodologia" className="methodology section--cream" ref={ref}>
       <div className="container">
-        <div className="anim-ready" style={{ '--delay': '0s' }}>
-          <h2 className="section-title">{t.title}</h2>
-          <p className="section-desc">{t.subtitle}</p>
-        </div>
-
+        <h2 className="section-title anim-ready" style={{ '--delay': '0s' }}>
+          {t.title}
+        </h2>
+        <p className="section-desc anim-ready" style={{ '--delay': '0.1s' }}>
+          {t.subtitle}
+        </p>
         <div className="methodology__cards">
           {t.pillars.map((pillar, i) => (
             <div
-              key={i}
+              key={pillar.num}
               className="methodology__card anim-ready"
-              style={{ '--delay': `${i * 0.13}s` }}
+              style={{ '--delay': `${0.1 + i * 0.1}s` }}
             >
-              <div className="methodology__card-icon" aria-hidden="true">{pillar.icon}</div>
+              <span className="methodology__card-num">{pillar.num}</span>
               <h3 className="methodology__card-title">{pillar.title}</h3>
               <p className="methodology__card-desc">{pillar.description}</p>
             </div>
