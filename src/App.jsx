@@ -1,15 +1,15 @@
 import { createContext, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Ticker from './components/Ticker';
 import Program from './components/Program';
-import Problem from './components/Problem';
-import Opportunity from './components/Opportunity';
+import Mentalidad from './components/Mentalidad';
 import Methodology from './components/Methodology';
-import Community from './components/Community';
+import UnEspacioParaTodos from './components/UnEspacioParaTodos';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
-import CTAFinal from './components/CTAFinal';
 import ForCompanies from './components/ForCompanies';
+import CTAFinal from './components/CTAFinal';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -23,11 +23,11 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Ticker />
         <Program />
-        <Problem />
-        <Opportunity />
+        <Mentalidad />
         <Methodology />
-        <Community />
+        <UnEspacioParaTodos />
         <Pricing />
         <FAQ />
         <ForCompanies />
