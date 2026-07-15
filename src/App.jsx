@@ -19,6 +19,7 @@ export default function App() {
       <main>
         <Hero />
         <Mentalidad />
+        <div className="gradient-bridge" aria-hidden="true" />
         <QueHacemos />
         <Methodology />
         <CTAFinal />
