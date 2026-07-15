@@ -1,7 +1,7 @@
 /* ===================================================
    App.css — Sprintech Academy
-   Sections alternate: dark (#555D50) / white
-   Buttons: always lime or purple
+   Sections alternate: dark (#181818) / white
+   Buttons: pill solid (lime/purple) or ghost (arrow link)
    =================================================== */
 
 /* ===== Logo ===== */
@@ -45,7 +45,7 @@
   font-family: var(--font-poppins);
   font-weight: 400;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.65);
   padding: 8px 16px;
   border-radius: 9999px;
   transition: color 0.2s, background 0.2s;
@@ -77,7 +77,35 @@
   .navbar__cta  { display: none; }
 }
 
-/* ===== Hero (dark — #555D50) ===== */
+/* ===== Ghost button — link style with circular arrow ===== */
+.btn--ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: none;
+  padding: 0 4px;
+  font-family: var(--font-poppins);
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--white);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.btn--ghost:hover { opacity: 0.65; }
+.btn--ghost:hover .btn-ghost__icon { border-color: rgba(255,255,255,0.6); }
+
+.btn-ghost__icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+
+/* ===== Hero (dark — #181818) ===== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -92,47 +120,83 @@
 .hero__glow {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 40% 35% at 80% 95%, rgba(139,92,246,0.08) 0%, transparent 70%);
+    radial-gradient(ellipse 40% 35% at 80% 95%, rgba(139,92,246,0.07) 0%, transparent 70%);
   pointer-events: none; z-index: 0;
 }
 .hero__content {
   position: relative; z-index: 1;
   text-align: center;
-  padding-top: 80px; padding-bottom: 140px;
+  padding-top: 80px; padding-bottom: 160px;
   width: 100%;
 }
+
+/* Small logo above title */
+.hero__logo-mini {
+  display: flex; justify-content: center; margin-bottom: 36px;
+  opacity: 0.6;
+}
+.hero__logo-mini .logo-sprintech { font-size: 0.95rem; }
+.hero__logo-mini .logo-academy   { font-size: 0.78rem; }
+
 .hero__badge {
   display: inline-block;
   font-family: var(--font-syne);
   font-size: 0.72rem; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
-  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 9999px; padding: 7px 18px;
-  margin-bottom: 40px;
+  margin-bottom: 44px;
 }
+
+/* h1: two lines with different visual weight */
 .hero__h1 {
   font-family: var(--font-poppins);
-  font-weight: 700;
-  font-size: clamp(1.9rem, 4vw, 3.2rem);
-  line-height: 1.1;
-  color: var(--white);
   letter-spacing: -0.02em;
-  margin: 0 auto 24px;
-  max-width: 700px;
+  margin: 0 auto 28px;
+  max-width: 760px;
 }
-.hero__h1 span     { display: block; }
-.hero__h1--accent  { color: var(--lime); }
+.hero__h1-line1 {
+  display: block;
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+.hero__h1-line2 {
+  display: block;
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+  font-weight: 800;
+  color: var(--lime);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
 .hero__subtitle {
   font-family: var(--font-poppins); font-weight: 400;
   font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  color: rgba(255,255,255,0.5);
-  max-width: 460px; margin: 0 auto 44px; line-height: 1.7;
+  color: rgba(255,255,255,0.55);
+  max-width: 440px; margin: 0 auto 48px; line-height: 1.75;
 }
 .hero__ctas {
   display: flex; justify-content: center; align-items: center;
-  gap: 12px; flex-wrap: wrap;
+  gap: 20px; flex-wrap: wrap;
 }
+
+/* Scroll indicator */
+.hero__scroll {
+  margin-top: 72px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.28);
+  font-family: var(--font-syne); font-size: 0.6rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+}
+.hero__scroll-bar {
+  display: block;
+  width: 1px; height: 36px;
+  background: rgba(255,255,255,0.18);
+}
+.hero__scroll-text { line-height: 1; }
 
 /* ===== Mentalidad (white) ===== */
 .mentalidad {
@@ -186,13 +250,13 @@
   .mentalidad__cols { grid-template-columns: 1fr; gap: 48px; }
 }
 
-/* ===== Qué hacemos (dark — #555D50) ===== */
+/* ===== Qué hacemos (dark — #181818) ===== */
 .que-hacemos {
   padding: var(--section-spacing) 0;
   background: var(--carbon);
   color: var(--white);
 }
-.que-hacemos .eyebrow { color: rgba(255,255,255,0.45); }
+.que-hacemos .eyebrow { color: rgba(255,255,255,0.5); }
 
 .que-hacemos__layout {
   display: grid;
@@ -206,13 +270,13 @@
 .que-hacemos__tab {
   text-align: left;
   font-family: var(--font-poppins); font-size: 0.875rem; font-weight: 400;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.45);
   padding: 13px 18px; border-radius: 9999px;
   border: 1px solid transparent; background: none;
   cursor: pointer; transition: all 0.2s; line-height: 1.4;
 }
 .que-hacemos__tab:hover {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.85);
   background: rgba(255,255,255,0.08);
 }
 .que-hacemos__tab--active {
@@ -243,7 +307,7 @@
 }
 .que-hacemos__panel-desc {
   font-family: var(--font-poppins); font-size: 0.95rem;
-  color: rgba(255,255,255,0.6); line-height: 1.75;
+  color: rgba(255,255,255,0.65); line-height: 1.75;
   margin-bottom: 36px; max-width: 520px;
 }
 
@@ -251,7 +315,7 @@
 .que-hacemos__list-item {
   display: flex; align-items: center; gap: 12px;
   font-family: var(--font-poppins); font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.8);
 }
 .que-hacemos__list-dot {
   width: 5px; height: 5px; border-radius: 50%;
@@ -262,13 +326,13 @@
 .que-hacemos__how-label {
   font-family: var(--font-syne); font-size: 0.72rem; font-weight: 500;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.35); margin-bottom: 18px;
+  color: rgba(255,255,255,0.4); margin-bottom: 18px;
 }
 .que-hacemos__how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .que-hacemos__how-item {
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 12px; padding: 18px 20px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.04);
 }
 .que-hacemos__how-title {
   font-family: var(--font-poppins); font-weight: 600; font-size: 0.95rem;
@@ -276,13 +340,13 @@
 }
 .que-hacemos__how-desc {
   font-family: var(--font-poppins); font-size: 0.875rem;
-  color: rgba(255,255,255,0.5); line-height: 1.6;
+  color: rgba(255,255,255,0.55); line-height: 1.6;
 }
 
 .que-hacemos__tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
 .que-hacemos__tag {
   font-family: var(--font-poppins); font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.75);
   border: 1px solid rgba(255,255,255,0.15);
   border-radius: 9999px; padding: 8px 18px;
   background: rgba(255,255,255,0.05);
@@ -290,10 +354,10 @@
 
 .que-hacemos__ctas { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 
-/* Stat card — frosted dark on dark section */
+/* Stat card — frosted on dark section */
 .que-hacemos__stat-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 20px;
   padding: 36px 24px;
   text-align: center;
@@ -385,7 +449,7 @@
   .methodology__card { padding: 40px 28px 48px; }
 }
 
-/* ===== CTA Final (dark — #555D50) ===== */
+/* ===== CTA Final (dark — #181818) ===== */
 .cta-final {
   padding: var(--section-spacing) 0;
   background: var(--carbon);
@@ -397,7 +461,7 @@
   color: var(--white); line-height: 1.1;
   letter-spacing: -0.03em; max-width: 820px; margin-bottom: 48px;
 }
-.cta-final__btns { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.cta-final__btns { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 
 /* ===== Footer (dark) ===== */
 .footer {
@@ -448,8 +512,8 @@
 @media (max-width: 768px) {
   :root { --section-spacing: 96px; }
   .hero { padding-top: 72px; }
-  .hero__content { padding-top: 56px; padding-bottom: 100px; }
-  .hero__ctas { flex-direction: column; align-items: center; }
+  .hero__content { padding-top: 56px; padding-bottom: 120px; }
+  .hero__ctas { flex-direction: column; align-items: center; gap: 16px; }
   .cta-final__btns { flex-direction: column; align-items: flex-start; }
 }
 

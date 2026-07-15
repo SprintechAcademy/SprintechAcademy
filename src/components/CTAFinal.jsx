@@ -18,7 +18,12 @@ export default function CTAFinal() {
           <a href="#registro" className="btn btn--lime">
             {t.ctaPrimary}
           </a>
-          <a href="#" className="btn btn--purple">
+          <a href="#" className="btn btn--ghost">
+            <span className="btn-ghost__icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                <path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
             {t.ctaSecondary}
           </a>
         </div>

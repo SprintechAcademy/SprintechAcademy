@@ -1,6 +1,6 @@
 /* ===== CSS Custom Properties ===== */
 :root {
-  --carbon: #555D50;
+  --carbon: #181818;
   --white:  #FFFFFF;
   --lime:   #C8F135;
   --purple: #8B5CF6;
@@ -63,7 +63,7 @@ ul     { list-style: none; }
   margin-bottom: 16px;
 }
 
-/* ===== Buttons — ALWAYS colored (lime or purple, never outline-only) ===== */
+/* ===== Buttons — pill solid (lime or purple) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
