@@ -4,7 +4,7 @@ export default function Logo() {
       <span className="logo-sprintech" style={{ color: 'var(--lime)' }}>
         Sprintech:
       </span>
-      <span className="logo-academy" style={{ color: 'var(--carbon)' }}>
+      <span className="logo-academy" style={{ color: 'var(--white)' }}>
         academy
       </span>
     </span>

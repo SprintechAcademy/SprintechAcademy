@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { LangContext } from '../App';
 import content from '../i18n/content';
 import useScrollAnim from '../hooks/useScrollAnim';
@@ -7,31 +7,79 @@ export default function QueHacemos() {
   const { lang } = useContext(LangContext);
   const t = content[lang].queHacemos;
   const ref = useScrollAnim();
+  const [active, setActive] = useState(0);
+
+  const tab = t.tabs[active];
 
   return (
-    <section className="que-hacemos section--cream" ref={ref}>
+    <section className="que-hacemos" ref={ref}>
       <div className="container">
-        <div className="que-hacemos__header anim-ready" style={{ '--delay': '0s' }}>
-          <p className="que-hacemos__eyebrow">{t.eyebrow}</p>
-          <h2 className="section-title">{t.title}</h2>
-        </div>
-        <div className="que-hacemos__cards">
-          {t.cards.map((card, i) => (
-            <div
-              key={card.id}
-              className={`que-hacemos__card que-hacemos__card--${card.accent} anim-ready`}
-              style={{ '--delay': `${i * 0.1}s` }}
-            >
-              <p className="que-hacemos__card-label">{card.label}</p>
-              <h3 className="que-hacemos__card-title">{card.title}</h3>
-              <p className="que-hacemos__card-desc">{card.desc}</p>
-              {card.cta && (
-                <a href={card.ctaHref} className="que-hacemos__card-cta btn btn--dark">
-                  {card.cta}
+        <p className="eyebrow anim-ready" style={{ '--delay': '0s' }}>
+          {t.eyebrow}
+        </p>
+        <div className="que-hacemos__layout anim-ready" style={{ '--delay': '0.1s' }}>
+          {/* Left: tab buttons */}
+          <div className="que-hacemos__tabs">
+            {t.tabs.map((item, i) => (
+              <button
+                key={i}
+                className={`que-hacemos__tab${active === i ? ' que-hacemos__tab--active' : ''}`}
+                onClick={() => setActive(i)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Right: panel — key forces remount so CSS animation fires */}
+          <div className="que-hacemos__panel" key={active}>
+            <h2 className="que-hacemos__panel-title">{tab.title}</h2>
+
+            {tab.desc && (
+              <p className="que-hacemos__panel-desc">{tab.desc}</p>
+            )}
+
+            {tab.list && (
+              <ul className="que-hacemos__list">
+                {tab.list.map((item, i) => (
+                  <li key={i} className="que-hacemos__list-item">
+                    <span className="que-hacemos__list-dot" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {tab.howWeWork && (
+              <div className="que-hacemos__how">
+                <p className="que-hacemos__how-label">{tab.howWeWork.label}</p>
+                <div className="que-hacemos__how-grid">
+                  {tab.howWeWork.items.map((item, i) => (
+                    <div key={i} className="que-hacemos__how-item">
+                      <strong className="que-hacemos__how-title">{item.title}</strong>
+                      <p className="que-hacemos__how-desc">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {tab.communityCards && (
+              <div className="que-hacemos__tags">
+                {tab.communityCards.map((card, i) => (
+                  <span key={i} className="que-hacemos__tag">{card}</span>
+                ))}
+              </div>
+            )}
+
+            <div className="que-hacemos__ctas">
+              {tab.ctas.map((cta, i) => (
+                <a key={i} href={cta.href} className={`btn ${cta.variant}`}>
+                  {cta.label}
                 </a>
-              )}
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

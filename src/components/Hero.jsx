@@ -13,24 +13,25 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className={`hero section--cream${loaded ? ' hero-loaded' : ''}`}>
-      <div className="hero__gradient" aria-hidden="true" />
+    <section className={`hero${loaded ? ' hero-loaded' : ''}`}>
+      <div className="hero__glow" aria-hidden="true" />
       <div className="container">
         <div className="hero__content">
           <div className="hero__badge anim-hero" style={{ '--delay': '0s' }}>
             {t.badge}
           </div>
           <h1 className="hero__h1 anim-hero" style={{ '--delay': '0.1s' }}>
-            {t.h1}
+            <span>{t.h1a}</span>
+            <span>{t.h1b}</span>
           </h1>
-          <p className="hero__subtitle anim-hero" style={{ '--delay': '0.2s' }}>
+          <p className="hero__subtitle anim-hero" style={{ '--delay': '0.22s' }}>
             {t.subtitle}
           </p>
-          <div className="hero__ctas anim-hero" style={{ '--delay': '0.3s' }}>
-            <a href="#registro" className="btn btn--lime btn--lg">
+          <div className="hero__ctas anim-hero" style={{ '--delay': '0.34s' }}>
+            <a href="#registro" className="btn btn--primary">
               {t.ctaPrimary}
             </a>
-            <a href="#comunidad" className="btn btn--ghost btn--lg">
+            <a href="#" className="btn btn--outline">
               {t.ctaSecondary}
             </a>
           </div>
