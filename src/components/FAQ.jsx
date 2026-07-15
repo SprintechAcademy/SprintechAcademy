@@ -10,7 +10,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(null);
 
   return (
-    <section className="faq section--dark" ref={ref}>
+    <section className="faq section--cream" ref={ref}>
       <div className="container">
         <h2 className="section-title anim-ready" style={{ '--delay': '0s' }}>
           {t.title}

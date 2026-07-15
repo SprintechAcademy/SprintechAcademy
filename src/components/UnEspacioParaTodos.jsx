@@ -9,7 +9,7 @@ export default function UnEspacioParaTodos() {
   const ref = useScrollAnim();
 
   return (
-    <section id="comunidad" className="espacio section--dark" ref={ref}>
+    <section id="comunidad" className="espacio section--cream" ref={ref}>
       <div className="container">
         <h2 className="section-title anim-ready" style={{ '--delay': '0s' }}>
           {t.title}

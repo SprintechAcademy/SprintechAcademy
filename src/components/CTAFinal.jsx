@@ -45,7 +45,7 @@ export default function CTAFinal() {
   };
 
   return (
-    <section id="registro" className="cta-final section--dark" ref={ref}>
+    <section id="registro" className="cta-final section--cream" ref={ref}>
       <div className="container">
         <div className="cta-final__inner">
           <div className="cta-final__left anim-ready" style={{ '--delay': '0s' }}>

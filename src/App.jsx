@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Ticker from './components/Ticker';
 import Program from './components/Program';
 import Mentalidad from './components/Mentalidad';
+import QueHacemos from './components/QueHacemos';
 import Methodology from './components/Methodology';
 import UnEspacioParaTodos from './components/UnEspacioParaTodos';
 import Pricing from './components/Pricing';
@@ -23,9 +23,9 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <Ticker />
-        <Program />
         <Mentalidad />
+        <QueHacemos />
+        <Program />
         <Methodology />
         <UnEspacioParaTodos />
         <Pricing />
