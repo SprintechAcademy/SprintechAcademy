@@ -17,24 +17,24 @@ export default function Navbar() {
 
         <ul className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
           <li>
-            <a href="#programa" className="navbar__link" onClick={() => setMenuOpen(false)}>
+            <a href="#" className="navbar__link" onClick={() => setMenuOpen(false)}>
               {t.sprinters}
             </a>
           </li>
           <li>
-            <a href="#para-empresas" className="navbar__link" onClick={() => setMenuOpen(false)}>
+            <a href="#" className="navbar__link" onClick={() => setMenuOpen(false)}>
               {t.empresas}
             </a>
           </li>
           <li>
-            <a href="#comunidad" className="navbar__link" onClick={() => setMenuOpen(false)}>
+            <a href="#" className="navbar__link" onClick={() => setMenuOpen(false)}>
               {t.comunidad}
             </a>
           </li>
         </ul>
 
         <div className="navbar__actions">
-          <a href="#registro" className="btn btn--lime" onClick={() => setMenuOpen(false)}>
+          <a href="#registro" className="btn btn--outline navbar__cta" onClick={() => setMenuOpen(false)}>
             {t.cta}
           </a>
           <button
