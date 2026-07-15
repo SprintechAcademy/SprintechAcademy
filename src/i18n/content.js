@@ -8,8 +8,8 @@ const content = {
     },
     hero: {
       badge: 'Cohorte Beta 2026 · 10 cupos gratuitos',
-      h1a: 'Aprende publicidad digital.',
-      h1b: 'Trabaja para el mundo.',
+      h1a: 'Aprende publicidad digital',
+      h1b: 'Trabaja para el mundo',
       subtitle: 'Programas intensivos y prácticos para aprender publicidad digital con estándares globales.',
       ctaPrimary: 'Aplicar',
       ctaSecondary: 'Reto Gratis',
@@ -54,7 +54,7 @@ const content = {
             ],
           },
           ctas: [
-            { label: 'Ver programas', href: '#', variant: 'btn--primary' },
+            { label: 'Ver programas', href: '#', variant: 'btn--purple' },
             { label: 'Agendar llamada', href: '#', variant: 'btn--outline' },
           ],
         },
@@ -122,8 +122,8 @@ const content = {
     },
     hero: {
       badge: 'Beta Cohort 2026 · 10 free spots',
-      h1a: 'Learn digital advertising.',
-      h1b: 'Work for the world.',
+      h1a: 'Learn digital advertising',
+      h1b: 'Work for the world',
       subtitle: 'Intensive, hands-on programs to learn digital advertising to global standards.',
       ctaPrimary: 'Apply',
       ctaSecondary: 'Free Challenge',
@@ -168,7 +168,7 @@ const content = {
             ],
           },
           ctas: [
-            { label: 'View programs', href: '#', variant: 'btn--primary' },
+            { label: 'View programs', href: '#', variant: 'btn--purple' },
             { label: 'Schedule a call', href: '#', variant: 'btn--outline' },
           ],
         },
