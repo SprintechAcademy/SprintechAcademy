@@ -22,16 +22,16 @@ export default function Hero() {
           </div>
           <h1 className="hero__h1 anim-hero" style={{ '--delay': '0.1s' }}>
             <span>{t.h1a}</span>
-            <span>{t.h1b}</span>
+            <span className="hero__h1--accent">{t.h1b}</span>
           </h1>
           <p className="hero__subtitle anim-hero" style={{ '--delay': '0.22s' }}>
             {t.subtitle}
           </p>
           <div className="hero__ctas anim-hero" style={{ '--delay': '0.34s' }}>
-            <a href="#registro" className="btn btn--primary">
+            <a href="#registro" className="btn btn--lime">
               {t.ctaPrimary}
             </a>
-            <a href="#" className="btn btn--outline">
+            <a href="#" className="btn btn--purple">
               {t.ctaSecondary}
             </a>
           </div>

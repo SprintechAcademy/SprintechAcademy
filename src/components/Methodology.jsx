@@ -23,6 +23,7 @@ export default function Methodology() {
               key={pillar.num}
               className="methodology__card anim-ready"
               style={{ '--delay': `${0.12 + i * 0.1}s` }}
+              data-num={pillar.num}
             >
               <span className="methodology__card-num">{pillar.num}</span>
               <h3 className="methodology__card-title">{pillar.title}</h3>

@@ -1,62 +1,37 @@
 /* ===== CSS Custom Properties ===== */
 :root {
-  --carbon: #0B0B0B;
-  --white: #FFFFFF;
-  --surface: #111111;
-  --lime: #C8F135;
+  --carbon: #555D50;
+  --white:  #FFFFFF;
+  --lime:   #C8F135;
   --purple: #8B5CF6;
 
   --font-poppins: 'Poppins', sans-serif;
-  --font-syne: 'Syne', sans-serif;
+  --font-syne:    'Syne', sans-serif;
 
-  --max-width: 1200px;
-  --padding-desktop: 48px;
-  --padding-tablet: 32px;
-  --padding-mobile: 20px;
-  --section-spacing: 120px;
+  --max-width:        1200px;
+  --padding-desktop:  48px;
+  --padding-tablet:   32px;
+  --padding-mobile:   20px;
+  --section-spacing:  120px;
 }
 
-/* ===== Reset & Base ===== */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   font-family: var(--font-poppins);
   color: var(--carbon);
-  background: var(--white);
+  background: #ffffff;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-ul {
-  list-style: none;
-}
+img    { max-width: 100%; display: block; }
+a      { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+ul     { list-style: none; }
 
 /* ===== Container ===== */
 .container {
@@ -64,18 +39,12 @@ ul {
   margin: 0 auto;
   padding: 0 var(--padding-desktop);
 }
-
-@media (max-width: 1024px) {
-  .container { padding: 0 var(--padding-tablet); }
-}
-
-@media (max-width: 600px) {
-  .container { padding: 0 var(--padding-mobile); }
-}
+@media (max-width: 1024px) { .container { padding: 0 var(--padding-tablet); } }
+@media (max-width: 600px)  { .container { padding: 0 var(--padding-mobile); } }
 
 /* ===== Typography helpers ===== */
-/* Poppins — all main text including titles  */
-/* Syne   — eyebrows/labels ONLY             */
+/* Poppins — everything including titles   */
+/* Syne    — eyebrows / small labels ONLY  */
 
 .eyebrow {
   font-family: var(--font-syne);
@@ -84,7 +53,6 @@ ul {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  /* color set contextually per section */
 }
 
 .section-title {
@@ -95,7 +63,7 @@ ul {
   margin-bottom: 16px;
 }
 
-/* ===== Buttons — single pill style ===== */
+/* ===== Buttons — ALWAYS colored (lime or purple, never outline-only) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -114,47 +82,22 @@ ul {
   border: none;
 }
 
-/* Primary — carbon fill, white text (default for light sections) */
-.btn--primary {
-  background: var(--carbon);
-  color: var(--white);
+/* Lime — primary accent */
+.btn--lime {
+  background: var(--lime);
+  color: var(--carbon);
 }
-
-.btn--primary:hover {
-  background: #222;
+.btn--lime:hover {
+  opacity: 0.88;
   transform: translateY(-1px);
 }
 
-/* Outline — ghost for light sections (default) */
-.btn--outline {
-  background: transparent;
-  color: var(--carbon);
-  border: 1.5px solid rgba(0, 0, 0, 0.22);
-}
-
-.btn--outline:hover {
-  border-color: rgba(0, 0, 0, 0.55);
-  background: rgba(0, 0, 0, 0.04);
-}
-
-/* Purple — prominent accent, active states */
+/* Purple — secondary accent */
 .btn--purple {
   background: var(--purple);
   color: var(--white);
 }
-
 .btn--purple:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* Accent — lime, small details only */
-.btn--accent {
-  background: var(--lime);
-  color: var(--carbon);
-}
-
-.btn--accent:hover {
   opacity: 0.9;
   transform: translateY(-1px);
 }
@@ -164,23 +107,19 @@ ul {
   .anim-ready {
     opacity: 0;
     transform: translateY(24px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s);
+    transition:
+      opacity   0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s);
   }
-
-  .anim-ready.anim-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  .anim-ready.anim-in { opacity: 1; transform: translateY(0); }
 
   .hero-loaded .anim-hero {
     animation: heroFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     animation-delay: var(--delay, 0s);
     opacity: 0;
   }
-
   @keyframes heroFadeIn {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 }
