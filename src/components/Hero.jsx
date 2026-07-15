@@ -21,21 +21,18 @@ export default function Hero() {
           <div className="hero__logo-mini anim-hero" style={{ '--delay': '0s' }}>
             <Logo />
           </div>
-          <div className="hero__badge anim-hero" style={{ '--delay': '0.1s' }}>
-            {t.badge}
-          </div>
-          <h1 className="hero__h1 anim-hero" style={{ '--delay': '0.2s' }}>
+          <h1 className="hero__h1 anim-hero" style={{ '--delay': '0.12s' }}>
             <span className="hero__h1-line1">{t.h1a}</span>
             <span className="hero__h1-line2">{t.h1b}</span>
           </h1>
-          <p className="hero__subtitle anim-hero" style={{ '--delay': '0.32s' }}>
+          <p className="hero__subtitle anim-hero" style={{ '--delay': '0.26s' }}>
             {t.subtitle}
           </p>
-          <div className="hero__ctas anim-hero" style={{ '--delay': '0.44s' }}>
+          <div className="hero__ctas anim-hero" style={{ '--delay': '0.4s' }}>
             <a href="#registro" className="btn btn--lime">
               {t.ctaPrimary}
             </a>
-            <a href="#" className="btn btn--ghost">
+            <a href="#" className="btn--ghost">
               <span className="btn-ghost__icon" aria-hidden="true">
                 <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                   <path d="M1 6.5h11M6.5 1l5.5 5.5-5.5 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -44,7 +41,7 @@ export default function Hero() {
               {t.ctaSecondary}
             </a>
           </div>
-          <div className="hero__scroll anim-hero" style={{ '--delay': '0.6s' }}>
+          <div className="hero__scroll anim-hero" style={{ '--delay': '0.58s' }}>
             <span className="hero__scroll-bar" />
             <span className="hero__scroll-text">Scroll</span>
           </div>

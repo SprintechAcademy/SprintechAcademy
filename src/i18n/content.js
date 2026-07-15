@@ -7,7 +7,6 @@ const content = {
       cta:       'Aplicar',
     },
     hero: {
-      badge:        'Cohorte Beta 2026 · 10 cupos gratuitos',
       h1a:          'Aprende publicidad digital',
       h1b:          'Trabaja para el mundo',
       subtitle:     'Programas intensivos y prácticos para aprender publicidad digital con estándares globales.',
@@ -22,7 +21,11 @@ const content = {
       },
       right: {
         statement: 'Donde el talento aprende, se desarrolla y encuentra su lugar en la industria digital global.',
-        note:      'La primera academia de AdTech diseñada para el talento latinoamericano con ambición global.',
+        cards: [
+          { num: '01', title: 'Talento global',    desc: 'El mejor talento de AdTech ya está en Latinoamérica — solo necesita las condiciones correctas para brillar.' },
+          { num: '02', title: 'Estándares reales', desc: 'Formamos con los mismos criterios que exigen las agencias y plataformas de publicidad global.' },
+          { num: '03', title: 'Comunidad activa',  desc: 'Un ecosistema donde aprender y crecer juntos acelera el camino de cada profesional.' },
+        ],
       },
     },
     queHacemos: {
@@ -126,7 +129,6 @@ const content = {
       cta:       'Apply',
     },
     hero: {
-      badge:        'Beta Cohort 2026 · 10 free spots',
       h1a:          'Learn digital advertising',
       h1b:          'Work for the world',
       subtitle:     'Intensive, hands-on programs to learn digital advertising to global standards.',
@@ -141,7 +143,11 @@ const content = {
       },
       right: {
         statement: 'Where talent learns, grows, and finds its place in the global digital industry.',
-        note:      'The first AdTech academy designed for Latin American talent with global ambition.',
+        cards: [
+          { num: '01', title: 'Global talent',    desc: 'The best AdTech talent already exists in Latin America — it just needs the right conditions to thrive.' },
+          { num: '02', title: 'Real standards',   desc: 'We train to the same criteria demanded by global advertising agencies and platforms.' },
+          { num: '03', title: 'Active community', desc: "An ecosystem where learning and growing together accelerates every professional's path." },
+        ],
       },
     },
     queHacemos: {
