@@ -18,7 +18,14 @@ export default function Mentalidad() {
             <p className="mentalidad__body">{t.left.body}</p>
           </div>
           <div className="mentalidad__right anim-ready" style={{ '--delay': '0.15s' }}>
-            <p className="mentalidad__statement">{t.right.statement}</p>
+            <div className="mentalidad__card">
+              <div className="mentalidad__stripe mentalidad__stripe--dark">
+                <p className="mentalidad__statement">{t.right.statement}</p>
+              </div>
+              <div className="mentalidad__stripe mentalidad__stripe--light">
+                <p className="mentalidad__note">{t.right.note}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
