@@ -145,22 +145,27 @@
 .hero__logo-mini .logo-sprintech { font-size: 0.95rem; }
 .hero__logo-mini .logo-academy   { font-size: 0.78rem; }
 
-/* h1: both lines same size, different color */
+/* h1: both lines same size, different color, no wrap */
 .hero__h1 {
   font-family: var(--font-poppins);
   letter-spacing: -0.025em;
   margin: 0 auto 28px;
-  max-width: 780px;
 }
 .hero__h1-line1,
 .hero__h1-line2 {
   display: block;
-  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+  font-size: clamp(1rem, 3.4vw, 3.4rem);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 .hero__h1-line1 { color: var(--white); }
 .hero__h1-line2 { color: var(--lime); }
+
+@media (max-width: 520px) {
+  .hero__h1-line1,
+  .hero__h1-line2 { white-space: normal; }
+}
 
 .hero__subtitle {
   font-family: var(--font-poppins); font-weight: 400;
@@ -221,12 +226,12 @@
   color: rgba(0,0,0,0.4); line-height: 1.6;
   margin-bottom: 28px;
 }
-.mentalidad__cards { display: flex; flex-direction: column; gap: 12px; }
+.mentalidad__cards { display: flex; flex-direction: column; gap: 10px; }
 .mentalidad__card {
   background: var(--carbon);
-  border-radius: 16px;
-  padding: 28px 32px;
-  display: flex; flex-direction: column; gap: 6px;
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: flex; flex-direction: column; gap: 4px;
   transition: transform 0.2s;
 }
 .mentalidad__card:hover { transform: translateY(-2px); }
@@ -390,14 +395,14 @@
   .que-hacemos__how-grid { grid-template-columns: 1fr; }
 }
 
-/* ===== Methodology / Pilares (dark — #181818) ===== */
+/* ===== Methodology / Pilares (light gray) ===== */
 .methodology {
   padding: var(--section-spacing) 0;
-  background: var(--carbon);
-  color: var(--white);
+  background: #F6F6F6;
+  color: var(--carbon);
 }
-.methodology .eyebrow  { color: rgba(255,255,255,0.45); }
-.methodology .section-title { color: var(--white); }
+.methodology .eyebrow  { color: rgba(0,0,0,0.4); }
+.methodology .section-title { color: var(--carbon); }
 
 .methodology__cards {
   display: grid;
@@ -422,7 +427,7 @@
   bottom: -16px; right: 4px;
   font-family: var(--font-poppins);
   font-weight: 900; font-size: 8rem; line-height: 1;
-  color: var(--white); opacity: 0.04;
+  color: var(--carbon); opacity: 0.05;
   pointer-events: none; user-select: none;
 }
 
@@ -436,11 +441,11 @@
 
 .methodology__card-title {
   font-family: var(--font-poppins); font-weight: 600; font-size: 1.1rem;
-  color: var(--white); margin-bottom: 14px; letter-spacing: -0.01em;
+  color: var(--carbon); margin-bottom: 14px; letter-spacing: -0.01em;
 }
 .methodology__card-desc {
   font-family: var(--font-poppins); font-size: 0.875rem;
-  line-height: 1.7; color: rgba(255,255,255,0.5);
+  line-height: 1.7; color: rgba(0,0,0,0.5);
 }
 
 @media (max-width: 768px) {

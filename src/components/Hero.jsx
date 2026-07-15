@@ -29,7 +29,7 @@ export default function Hero() {
             {t.subtitle}
           </p>
           <div className="hero__ctas anim-hero" style={{ '--delay': '0.4s' }}>
-            <a href="#registro" className="btn btn--lime">
+            <a href="#registro" className="btn btn--purple">
               {t.ctaPrimary}
             </a>
             <a href="#" className="btn--ghost">
