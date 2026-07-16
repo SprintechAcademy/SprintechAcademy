@@ -33,6 +33,7 @@ export default function Mentalidad() {
             <p className="mentalidad__body">{t.left.body}</p>
           </div>
           <div className="mentalidad__right anim-ready" style={{ '--delay': '0.15s' }}>
+            <p className="mentalidad__concepts-heading">{t.right.heading}</p>
             <div className="mentalidad__concepts">
               {t.right.concepts.map((c) => (
                 <div key={c.word} className="mentalidad__concept">

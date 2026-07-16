@@ -224,28 +224,35 @@
   color: rgba(0,0,0,0.5); line-height: 1.85;
 }
 
-/* Right: Thinkers / Makers / Sprinters — in cards */
-.mentalidad__concepts { display: flex; flex-direction: column; gap: 12px; }
+/* Right: heading + Thinkers / Makers / Sprinters — in compact cards */
+.mentalidad__concepts-heading {
+  font-family: var(--font-poppins); font-weight: 700;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--carbon); letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.mentalidad__concepts { display: flex; flex-direction: column; gap: 10px; }
 
 .mentalidad__concept {
   background: #ffffff;
   border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px;
-  padding: 24px 28px;
+  border-radius: 14px;
+  padding: 16px 20px;
   transition: box-shadow 0.2s;
 }
-.mentalidad__concept:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.mentalidad__concept:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
 
 .mentalidad__concept-word {
   display: block;
   font-family: var(--font-poppins); font-weight: 700;
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: 1.05rem;
   color: var(--carbon); letter-spacing: -0.02em; line-height: 1.1;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 .mentalidad__concept-desc {
-  font-family: var(--font-poppins); font-size: 0.875rem;
-  color: rgba(0,0,0,0.5); line-height: 1.75;
+  font-family: var(--font-poppins); font-size: 0.84rem;
+  color: rgba(0,0,0,0.5); line-height: 1.65;
 }
 
 /* Stats strip — Talento global / Estándares reales / Comunidad activa — in cards */
@@ -287,7 +294,7 @@
 
 /* Section header — centered */
 .que-hacemos__header { text-align: center; max-width: 600px; margin: 0 auto; }
-.que-hacemos__eyebrow { color: var(--lime); }
+.que-hacemos__eyebrow { color: var(--purple); }
 .que-hacemos__title {
   font-family: var(--font-poppins); font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -367,52 +374,101 @@
   color: rgba(0,0,0,0.55); line-height: 1.8; margin-bottom: 40px;
 }
 
-/* === Sprinters panel — centered single column === */
-.qh-panel--sprinters .qh-panel__title { margin-bottom: 32px; }
+/* === Sprinters panel — 2-column grid === */
+.qh-panel--sprinters .qh-panel__title { margin-bottom: 40px; }
 
-.qh-program-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 48px 52px;
-  border: 1.5px solid rgba(0,0,0,0.07);
-  border-radius: 20px;
-  background: rgba(0,0,0,0.015);
-  margin-bottom: 28px;
+.qh-sprint-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 56px;
+  align-items: start;
 }
-.qh-program-card__tag {
+
+.qh-sprint-left { padding: 8px 0; }
+
+.qh-sprint-tag {
   display: inline-block;
   font-family: var(--font-syne); font-weight: 500; font-size: 0.7rem;
   letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--purple); margin-bottom: 12px;
+  color: var(--purple); margin-bottom: 14px;
 }
-.qh-program-card__name {
+.qh-sprint-name {
   font-family: var(--font-poppins); font-weight: 700; font-size: 1.3rem;
-  color: var(--carbon); letter-spacing: -0.02em; margin-bottom: 14px;
+  color: var(--carbon); letter-spacing: -0.02em; line-height: 1.25;
+  margin-bottom: 16px;
 }
-.qh-program-card__desc {
+.qh-sprint-desc {
   font-family: var(--font-poppins); font-size: 0.9rem;
-  color: rgba(0,0,0,0.55); line-height: 1.75; margin-bottom: 28px;
-  max-width: 520px;
+  color: rgba(0,0,0,0.5); line-height: 1.8;
 }
-/* Chips — pill style matching comunidad */
-.qh-program-card__chips {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 8px; list-style: none; margin-bottom: 36px;
+
+.qh-sprint-right {
+  padding: 28px 32px;
+  background: rgba(0,0,0,0.015);
+  border: 1.5px solid rgba(0,0,0,0.07);
+  border-radius: 20px;
 }
-.qh-program-card__chip {
-  font-family: var(--font-poppins); font-size: 0.84rem;
+.qh-sprint-learn-title {
+  font-family: var(--font-syne); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(0,0,0,0.35); margin-bottom: 16px;
+}
+.qh-sprint-chips {
+  display: flex; flex-direction: column; gap: 8px; list-style: none;
+}
+.qh-sprint-chip {
+  font-family: var(--font-poppins); font-size: 0.875rem;
   color: rgba(0,0,0,0.65);
   border: 1.5px solid rgba(0,0,0,0.1);
-  border-radius: 9999px; padding: 8px 18px;
-  background: rgba(0,0,0,0.03);
+  border-radius: 9999px; padding: 10px 20px;
+  background: rgba(0,0,0,0.02);
 }
-.qh-program-card__cta { margin-bottom: 14px; }
-.qh-program-card__price {
+
+/* Benefits below grid */
+.qh-sprint-benefits { text-align: center; margin-bottom: 48px; }
+.qh-sprint-benefits__title {
+  font-family: var(--font-poppins); font-weight: 700;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  color: var(--carbon); letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.qh-sprint-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.qh-sprint-benefit {
+  border: 1.5px solid rgba(0,0,0,0.08);
+  border-radius: 20px;
+  padding: 28px 22px;
+  text-align: left;
+  transition: border-color 0.2s, background 0.2s;
+}
+.qh-sprint-benefit:hover {
+  border-color: var(--purple);
+  background: rgba(139,92,246,0.03);
+}
+.qh-sprint-benefit__title {
+  display: block;
+  font-family: var(--font-poppins); font-weight: 600; font-size: 0.875rem;
+  color: var(--carbon); margin-bottom: 8px;
+}
+.qh-sprint-benefit__desc {
+  font-family: var(--font-poppins); font-size: 0.82rem;
+  color: rgba(0,0,0,0.45); line-height: 1.65;
+}
+
+/* CTA row */
+.qh-sprint-cta {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 14px; margin-bottom: 40px;
+}
+.qh-sprint-price {
   font-family: var(--font-syne); font-weight: 600; font-size: 0.78rem;
   letter-spacing: 0.06em; color: rgba(0,0,0,0.38);
 }
+
 .qh-coming-soon {
   font-family: var(--font-poppins); font-size: 0.82rem;
   color: rgba(0,0,0,0.35); line-height: 1.6;
@@ -516,7 +572,8 @@
 @media (max-width: 768px) {
   .que-hacemos__tabbar { gap: 8px; flex-wrap: wrap; }
   .que-hacemos__tabbn { padding: 12px 22px; }
-  .qh-program-card { grid-template-columns: 1fr; gap: 28px; }
+  .qh-sprint-grid { grid-template-columns: 1fr; gap: 24px; }
+  .qh-sprint-benefits__grid { grid-template-columns: 1fr; }
   .qh-how__grid { grid-template-columns: 1fr; }
   .qh-programs__grid { grid-template-columns: 1fr; }
   .qh-benefits { grid-template-columns: 1fr 1fr; }

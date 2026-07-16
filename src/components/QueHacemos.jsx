@@ -8,20 +8,41 @@ function SprintersPanel({ tab }) {
   return (
     <div className="qh-panel qh-panel--sprinters">
       <h2 className="qh-panel__title">{tab.title}</h2>
-      <div className="qh-program-card">
-        <span className="qh-program-card__tag">{prog.tag}</span>
-        <h3 className="qh-program-card__name">{prog.name}</h3>
-        <p className="qh-program-card__desc">{prog.desc}</p>
-        <ul className="qh-program-card__chips">
-          {prog.list.map((item) => (
-            <li key={item} className="qh-program-card__chip">{item}</li>
-          ))}
-        </ul>
-        <a href={prog.ctaHref} className="btn btn--purple qh-program-card__cta">
-          {prog.cta}
-        </a>
-        <p className="qh-program-card__price">{prog.price}</p>
+
+      <div className="qh-sprint-grid">
+        <div className="qh-sprint-left">
+          <span className="qh-sprint-tag">{prog.tag}</span>
+          <h3 className="qh-sprint-name">{prog.name}</h3>
+          <p className="qh-sprint-desc">{prog.desc}</p>
+        </div>
+
+        <div className="qh-sprint-right">
+          <p className="qh-sprint-learn-title">{prog.learnTitle}</p>
+          <ul className="qh-sprint-chips">
+            {prog.list.map((item) => (
+              <li key={item} className="qh-sprint-chip">{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
+
+      <div className="qh-sprint-benefits">
+        <h4 className="qh-sprint-benefits__title">{prog.benefitsTitle}</h4>
+        <div className="qh-sprint-benefits__grid">
+          {prog.benefits.map((b) => (
+            <div key={b.title} className="qh-sprint-benefit">
+              <strong className="qh-sprint-benefit__title">{b.title}</strong>
+              <p className="qh-sprint-benefit__desc">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="qh-sprint-cta">
+        <a href={prog.ctaHref} className="btn btn--purple">{prog.cta}</a>
+        <p className="qh-sprint-price">{prog.price}</p>
+      </div>
+
       <p className="qh-coming-soon">{tab.comingSoon}</p>
     </div>
   );
