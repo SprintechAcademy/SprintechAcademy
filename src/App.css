@@ -132,16 +132,6 @@
   pointer-events: none; z-index: 0;
 }
 
-/* Fade from carbon to white at the bottom of the hero */
-.hero__fade {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent, #ffffff);
-  z-index: 3;
-  pointer-events: none;
-}
-
 .hero__content {
   position: relative; z-index: 1;
   text-align: center;
@@ -182,7 +172,7 @@
 .hero__subtitle {
   font-family: var(--font-poppins); font-weight: 400;
   font-size: clamp(0.9rem, 1.6vw, 1.05rem);
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.82);
   max-width: 440px; margin: 0 auto 48px; line-height: 1.75;
 }
 .hero__ctas {
@@ -205,10 +195,10 @@
 }
 .hero__scroll-text { line-height: 1; }
 
-/* ===== Mentalidad (white) ===== */
+/* ===== Mentalidad (light gray — same as methodology) ===== */
 .mentalidad {
   padding: var(--section-spacing) 0;
-  background: #ffffff;
+  background: #F6F6F6;
   color: var(--carbon);
 }
 
@@ -222,48 +212,63 @@
 
 .mentalidad__title {
   font-family: var(--font-poppins); font-weight: 700;
-  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-  color: var(--carbon); line-height: 1.25;
-  margin-bottom: 24px; letter-spacing: -0.025em;
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  color: var(--carbon); line-height: 1.2;
+  margin-bottom: 24px; letter-spacing: -0.03em;
 }
 .mentalidad__title-hl { color: var(--purple); }
 
 .mentalidad__body {
-  font-family: var(--font-poppins); font-size: 0.95rem;
-  color: rgba(0,0,0,0.55); line-height: 1.8;
+  font-family: var(--font-poppins); font-size: 0.875rem;
+  color: rgba(0,0,0,0.5); line-height: 1.85;
 }
 
-/* Right: Thinkers / Makers / Sprinters */
-.mentalidad__concepts { display: flex; flex-direction: column; gap: 36px; }
+/* Right: Thinkers / Makers / Sprinters — in cards */
+.mentalidad__concepts { display: flex; flex-direction: column; gap: 12px; }
+
+.mentalidad__concept {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 24px 28px;
+  transition: box-shadow 0.2s;
+}
+.mentalidad__concept:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
 
 .mentalidad__concept-word {
   display: block;
   font-family: var(--font-poppins); font-weight: 700;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
   color: var(--carbon); letter-spacing: -0.02em; line-height: 1.1;
   margin-bottom: 8px;
 }
 .mentalidad__concept-desc {
-  font-family: var(--font-poppins); font-size: 0.9rem;
+  font-family: var(--font-poppins); font-size: 0.875rem;
   color: rgba(0,0,0,0.5); line-height: 1.75;
 }
 
-/* Stats strip — Talento global / Estándares reales / Comunidad activa */
+/* Stats strip — Talento global / Estándares reales / Comunidad activa — in cards */
 .mentalidad__stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 72px;
-  padding-top: 48px;
-  border-top: 1px solid rgba(0,0,0,0.08);
+  gap: 12px;
+  margin-top: 56px;
 }
+.mentalidad__stat {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 24px 28px;
+  transition: box-shadow 0.2s;
+}
+.mentalidad__stat:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
 .mentalidad__stat-title {
   display: block;
   font-family: var(--font-poppins); font-weight: 600; font-size: 0.95rem;
   color: var(--carbon); margin-bottom: 10px;
 }
 .mentalidad__stat-desc {
-  font-family: var(--font-poppins); font-size: 0.875rem;
+  font-family: var(--font-poppins); font-size: 0.845rem;
   color: rgba(0,0,0,0.45); line-height: 1.7;
 }
 
@@ -281,7 +286,7 @@
 
 /* Section header — centered */
 .que-hacemos__header { text-align: center; max-width: 600px; margin: 0 auto; }
-.que-hacemos__eyebrow { color: rgba(0,0,0,0.35); }
+.que-hacemos__eyebrow { color: var(--lime); }
 .que-hacemos__title {
   font-family: var(--font-poppins); font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -361,17 +366,19 @@
   color: rgba(0,0,0,0.55); line-height: 1.8; margin-bottom: 40px;
 }
 
-/* === Sprinters panel === */
+/* === Sprinters panel — centered single column === */
+.qh-panel--sprinters .qh-panel__title { margin-bottom: 32px; }
+
 .qh-program-card {
-  display: grid;
-  grid-template-columns: 1fr 200px;
-  gap: 48px;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 52px;
   border: 1.5px solid rgba(0,0,0,0.07);
   border-radius: 20px;
   background: rgba(0,0,0,0.015);
   margin-bottom: 28px;
-  align-items: start;
 }
 .qh-program-card__tag {
   display: inline-block;
@@ -385,25 +392,25 @@
 }
 .qh-program-card__desc {
   font-family: var(--font-poppins); font-size: 0.9rem;
-  color: rgba(0,0,0,0.55); line-height: 1.75; margin-bottom: 24px;
+  color: rgba(0,0,0,0.55); line-height: 1.75; margin-bottom: 28px;
+  max-width: 520px;
 }
-.qh-program-card__list { display: flex; flex-direction: column; gap: 10px; }
-.qh-program-card__list-item {
-  display: flex; align-items: center; gap: 10px;
-  font-family: var(--font-poppins); font-size: 0.875rem;
+/* Chips — pill style matching comunidad */
+.qh-program-card__chips {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px; list-style: none; margin-bottom: 36px;
+}
+.qh-program-card__chip {
+  font-family: var(--font-poppins); font-size: 0.84rem;
   color: rgba(0,0,0,0.65);
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 9999px; padding: 8px 18px;
+  background: rgba(0,0,0,0.03);
 }
-.qh-program-card__dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--purple); flex-shrink: 0;
-}
-.qh-program-card__side {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
-  padding-top: 4px;
-}
+.qh-program-card__cta { margin-bottom: 14px; }
 .qh-program-card__price {
   font-family: var(--font-syne); font-weight: 600; font-size: 0.78rem;
-  letter-spacing: 0.06em; color: rgba(0,0,0,0.4);
+  letter-spacing: 0.06em; color: rgba(0,0,0,0.38);
 }
 .qh-coming-soon {
   font-family: var(--font-poppins); font-size: 0.82rem;
@@ -503,7 +510,7 @@
 @media (max-width: 768px) {
   .que-hacemos__tabbar { gap: 8px; flex-wrap: wrap; }
   .que-hacemos__tabbn { padding: 12px 22px; }
-  .qh-program-card { grid-template-columns: 1fr; gap: 28px; }
+  .qh-program-card { padding: 32px 24px; }
   .qh-how__grid { grid-template-columns: 1fr; }
   .qh-programs__grid { grid-template-columns: 1fr; }
   .qh-benefits { grid-template-columns: 1fr 1fr; }
@@ -542,14 +549,14 @@
 .methodology__card:nth-child(2)  { border-top-color: var(--purple); }
 .methodology__card:hover          { transform: translateY(-4px); }
 
-/* Watermark number — reduced so it doesn't overpower content */
+/* Watermark number — subtle accent, content is always the protagonist */
 .methodology__card::before {
   content: attr(data-num);
   position: absolute;
-  bottom: -10px; right: 8px;
+  bottom: -4px; right: 12px;
   font-family: var(--font-poppins);
-  font-weight: 900; font-size: 5rem; line-height: 1;
-  color: var(--carbon); opacity: 0.05;
+  font-weight: 900; font-size: 2.8rem; line-height: 1;
+  color: var(--carbon); opacity: 0.07;
   pointer-events: none; user-select: none;
 }
 
