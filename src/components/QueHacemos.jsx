@@ -3,92 +3,131 @@ import { LangContext } from '../App';
 import content from '../i18n/content';
 import useScrollAnim from '../hooks/useScrollAnim';
 
+function SprintersPanel({ tab }) {
+  const prog = tab.programs[0];
+  return (
+    <div className="qh-panel qh-panel--sprinters">
+      <h2 className="qh-panel__title">{tab.title}</h2>
+      <div className="qh-program-card">
+        <div className="qh-program-card__main">
+          <span className="qh-program-card__tag">{prog.tag}</span>
+          <h3 className="qh-program-card__name">{prog.name}</h3>
+          <p className="qh-program-card__desc">{prog.desc}</p>
+          <ul className="qh-program-card__list">
+            {prog.list.map((item) => (
+              <li key={item} className="qh-program-card__list-item">
+                <span className="qh-program-card__dot" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="qh-program-card__side">
+          <p className="qh-program-card__price">{prog.price}</p>
+          <a href={prog.ctaHref} className="btn btn--purple">
+            {prog.cta}
+          </a>
+        </div>
+      </div>
+      <p className="qh-coming-soon">{tab.comingSoon}</p>
+    </div>
+  );
+}
+
+function AdLabPanel({ tab }) {
+  return (
+    <div className="qh-panel qh-panel--adlab">
+      <h2 className="qh-panel__title">{tab.title}</h2>
+      <p className="qh-panel__lead">{tab.desc}</p>
+      <p className="qh-panel__body">{tab.body}</p>
+
+      <div className="qh-how">
+        <p className="qh-how__label">{tab.howWeWork.label}</p>
+        <div className="qh-how__grid">
+          {tab.howWeWork.items.map((item) => (
+            <div key={item.title} className="qh-how__item">
+              <strong className="qh-how__title">{item.title}</strong>
+              <p className="qh-how__desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="qh-programs">
+        <p className="qh-programs__label">{tab.programs.label}</p>
+        <div className="qh-programs__grid">
+          {tab.programs.items.map((prog) => (
+            <div key={prog.name} className="qh-programs__card">
+              <strong className="qh-programs__card-name">{prog.name}</strong>
+              <p className="qh-programs__card-desc">{prog.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="qh-ctas">
+        {tab.ctas.map((cta) => (
+          <a key={cta.label} href={cta.href} className={`btn ${cta.variant}`}>
+            {cta.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ComunidadPanel({ tab }) {
+  return (
+    <div className="qh-panel qh-panel--comunidad">
+      <h2 className="qh-panel__title">{tab.title}</h2>
+      <p className="qh-panel__lead">{tab.subtitle}</p>
+      <div className="qh-benefits">
+        {tab.benefits.map((b) => (
+          <div key={b.label} className="qh-benefit">
+            <strong className="qh-benefit__label">{b.label}</strong>
+            <p className="qh-benefit__desc">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+      <a href={tab.ctaHref} className="btn btn--purple">
+        {tab.cta}
+      </a>
+    </div>
+  );
+}
+
 export default function QueHacemos() {
   const { lang } = useContext(LangContext);
   const t = content[lang].queHacemos;
   const ref = useScrollAnim();
   const [active, setActive] = useState(0);
 
-  const tab = t.tabs[active];
-
   return (
     <section className="que-hacemos" ref={ref}>
       <div className="container">
-        <p className="eyebrow anim-ready" style={{ '--delay': '0s' }}>
-          {t.eyebrow}
-        </p>
-        <div className="que-hacemos__layout anim-ready" style={{ '--delay': '0.1s' }}>
-          {/* Left: tab buttons */}
-          <div className="que-hacemos__tabs">
-            {t.tabs.map((item, i) => (
-              <button
-                key={i}
-                className={`que-hacemos__tab${active === i ? ' que-hacemos__tab--active' : ''}`}
-                onClick={() => setActive(i)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
+        <div className="que-hacemos__header anim-ready" style={{ '--delay': '0s' }}>
+          <p className="eyebrow que-hacemos__eyebrow">{t.eyebrow}</p>
+          <h2 className="que-hacemos__title">{t.title}</h2>
+          <p className="que-hacemos__subtitle">{t.subtitle}</p>
+        </div>
 
-          {/* Right: panel — key forces remount → CSS animation fires */}
-          <div className="que-hacemos__panel" key={active}>
-            <div className="que-hacemos__panel-main">
-              <h2 className="que-hacemos__panel-title">{tab.title}</h2>
+        <div className="que-hacemos__tabbar anim-ready" style={{ '--delay': '0.1s' }}>
+          {t.tabs.map((tab, i) => (
+            <button
+              key={tab.key}
+              className={`que-hacemos__tabbn${active === i ? ' que-hacemos__tabbn--active' : ''}`}
+              onClick={() => setActive(i)}
+            >
+              <span className="que-hacemos__tabbn-label">{tab.label}</span>
+              <span className="que-hacemos__tabbn-sub">{tab.sublabel}</span>
+            </button>
+          ))}
+        </div>
 
-              {tab.desc && (
-                <p className="que-hacemos__panel-desc">{tab.desc}</p>
-              )}
-
-              {tab.list && (
-                <ul className="que-hacemos__list">
-                  {tab.list.map((item, i) => (
-                    <li key={i} className="que-hacemos__list-item">
-                      <span className="que-hacemos__list-dot" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {tab.howWeWork && (
-                <div className="que-hacemos__how">
-                  <p className="que-hacemos__how-label">{tab.howWeWork.label}</p>
-                  <div className="que-hacemos__how-grid">
-                    {tab.howWeWork.items.map((item, i) => (
-                      <div key={i} className="que-hacemos__how-item">
-                        <strong className="que-hacemos__how-title">{item.title}</strong>
-                        <p className="que-hacemos__how-desc">{item.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {tab.communityCards && (
-                <div className="que-hacemos__tags">
-                  {tab.communityCards.map((card, i) => (
-                    <span key={i} className="que-hacemos__tag">{card}</span>
-                  ))}
-                </div>
-              )}
-
-              <div className="que-hacemos__ctas">
-                {tab.ctas.map((cta, i) => (
-                  <a key={i} href={cta.href} className={`btn ${cta.variant}`}>
-                    {cta.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {tab.card && (
-              <div className="que-hacemos__stat-card">
-                <span className="que-hacemos__stat-num">{tab.card.stat}</span>
-                <span className="que-hacemos__stat-label">{tab.card.label}</span>
-              </div>
-            )}
-          </div>
+        <div className="que-hacemos__panel-wrap" key={active}>
+          {active === 0 && <SprintersPanel tab={t.tabs[0]} />}
+          {active === 1 && <AdLabPanel tab={t.tabs[1]} />}
+          {active === 2 && <ComunidadPanel tab={t.tabs[2]} />}
         </div>
       </div>
     </section>

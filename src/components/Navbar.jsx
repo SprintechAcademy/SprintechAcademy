@@ -34,7 +34,7 @@ export default function Navbar() {
         </ul>
 
         <div className="navbar__actions">
-          <a href="#registro" className="btn btn--lime navbar__cta" onClick={() => setMenuOpen(false)}>
+          <a href="#registro" className="btn btn--purple navbar__cta" onClick={() => setMenuOpen(false)}>
             {t.cta}
           </a>
           <button
