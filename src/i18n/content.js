@@ -34,7 +34,7 @@ const content = {
       ],
     },
     queHacemos: {
-      eyebrow:  'Para todos',
+      eyebrow:  'Qué hacemos',
       title:    'Hay un lugar para ti.',
       subtitle: 'Elige lo que mejor se adapta a tus necesidades.',
       tabs: [
@@ -172,7 +172,7 @@ const content = {
       ],
     },
     queHacemos: {
-      eyebrow:  'For everyone',
+      eyebrow:  'What we do',
       title:    'There is a place for you.',
       subtitle: 'Choose what best fits your needs.',
       tabs: [

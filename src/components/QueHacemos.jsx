@@ -9,25 +9,18 @@ function SprintersPanel({ tab }) {
     <div className="qh-panel qh-panel--sprinters">
       <h2 className="qh-panel__title">{tab.title}</h2>
       <div className="qh-program-card">
-        <div className="qh-program-card__main">
-          <span className="qh-program-card__tag">{prog.tag}</span>
-          <h3 className="qh-program-card__name">{prog.name}</h3>
-          <p className="qh-program-card__desc">{prog.desc}</p>
-          <ul className="qh-program-card__list">
-            {prog.list.map((item) => (
-              <li key={item} className="qh-program-card__list-item">
-                <span className="qh-program-card__dot" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="qh-program-card__side">
-          <p className="qh-program-card__price">{prog.price}</p>
-          <a href={prog.ctaHref} className="btn btn--purple">
-            {prog.cta}
-          </a>
-        </div>
+        <span className="qh-program-card__tag">{prog.tag}</span>
+        <h3 className="qh-program-card__name">{prog.name}</h3>
+        <p className="qh-program-card__desc">{prog.desc}</p>
+        <ul className="qh-program-card__chips">
+          {prog.list.map((item) => (
+            <li key={item} className="qh-program-card__chip">{item}</li>
+          ))}
+        </ul>
+        <a href={prog.ctaHref} className="btn btn--purple qh-program-card__cta">
+          {prog.cta}
+        </a>
+        <p className="qh-program-card__price">{prog.price}</p>
       </div>
       <p className="qh-coming-soon">{tab.comingSoon}</p>
     </div>
