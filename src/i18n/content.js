@@ -1,7 +1,7 @@
 const content = {
   es: {
     nav: {
-      sprinters: 'Sprinters',
+      sprinters: 'Sprints',
       empresas:  'Empresas',
       comunidad: 'Comunidad',
       cta:       'Iniciar sesión',
@@ -21,6 +21,7 @@ const content = {
         body:           'Somos una comunidad especializada en publicidad digital creada para formar profesionales capaces de competir en la industria global desde Latinoamérica. Creemos que el talento ya existe; nuestro propósito es acercarlo a las oportunidades, las herramientas y los estándares que hoy exige el mercado internacional.',
       },
       right: {
+        heading: 'Lo que nos define.',
         concepts: [
           { word: 'Thinkers.',  desc: 'Cuestionan, analizan y entienden la industria digital por dentro.' },
           { word: 'Makers.',    desc: 'Crean, operan y entregan resultados que los clientes ven.' },
@@ -40,20 +41,36 @@ const content = {
       tabs: [
         {
           key:      'sprinters',
-          label:    'Sprinters',
+          label:    'Sprint',
           sublabel: 'Para estudiantes',
           title:    'En 5 semanas entrena con los estándares globales de publicidad digital.',
           programs: [
             {
-              name:    'Ad Operations Sprint',
-              tag:     'Nuestro primer programa',
-              desc:    'En cinco semanas te formamos en Ad Operations. Aprendes las herramientas, entiendes cómo funciona la industria global y desarrollas las habilidades necesarias para iniciar una carrera en el ecosistema AdTech.',
-              list:    [
+              name:       'Ad Operations Sprint',
+              tag:        'Nuestro primer programa',
+              desc:       'En cinco semanas te formamos en Ad Operations. Aprendes las herramientas, entiendes cómo funciona la industria global y desarrollas las habilidades necesarias para iniciar una carrera en el ecosistema AdTech.',
+              learnTitle: '¿Qué aprendes?',
+              list:       [
                 'Fundamentos de Ad Operations',
                 'Plataformas y Trafficking',
                 'Optimización y Reporting',
                 'El día a día en agencias globales',
                 'Kit para entrar al mercado laboral',
+              ],
+              benefitsTitle: '¿Qué logras al terminar el Sprint?',
+              benefits: [
+                {
+                  title: 'Conocimiento de plataformas técnicas',
+                  desc:  'Conoce herramientas como CM360 y DV360, utilizadas por agencias y equipos de AdTech para gestionar campañas digitales.',
+                },
+                {
+                  title: 'Perfil listo para el mercado laboral',
+                  desc:  'Obtén un CV optimizado, un portafolio profesional y preparación para entrevistas en inglés orientadas a agencias globales.',
+                },
+                {
+                  title: 'Acceso a oportunidades globales',
+                  desc:  'Forma parte de la comunidad de Sprinters y accede a recursos exclusivos, networking y vacantes compartidas por empresas y agencias internacionales.',
+                },
               ],
               cta:     'Ver Ad Operations Sprint',
               ctaHref: '#registro',
@@ -139,7 +156,7 @@ const content = {
 
   en: {
     nav: {
-      sprinters: 'Sprinters',
+      sprinters: 'Sprints',
       empresas:  'Companies',
       comunidad: 'Community',
       cta:       'Log in',
@@ -159,6 +176,7 @@ const content = {
         body:           'We are a specialized digital advertising community built to train professionals who can compete in the global industry from Latin America. We believe the talent already exists; our purpose is to connect it with the opportunities, tools and standards the international market demands today.',
       },
       right: {
+        heading: 'What defines us.',
         concepts: [
           { word: 'Thinkers.',  desc: 'They question, analyze and understand the digital industry from the inside.' },
           { word: 'Makers.',    desc: 'They create, operate and deliver results that clients can see.' },
@@ -178,20 +196,36 @@ const content = {
       tabs: [
         {
           key:      'sprinters',
-          label:    'Sprinters',
+          label:    'Sprint',
           sublabel: 'For students',
           title:    'In 5 weeks, train to global digital advertising standards.',
           programs: [
             {
-              name:    'Ad Operations Sprint',
-              tag:     'Our first program',
-              desc:    'In five weeks we train you in Ad Operations. You learn the tools, understand how the global industry works, and build the skills you need to start a career in the AdTech ecosystem.',
-              list:    [
+              name:       'Ad Operations Sprint',
+              tag:        'Our first program',
+              desc:       'In five weeks we train you in Ad Operations. You learn the tools, understand how the global industry works, and build the skills you need to start a career in the AdTech ecosystem.',
+              learnTitle: 'What do you learn?',
+              list:       [
                 'Ad Operations fundamentals',
                 'Platforms & Trafficking',
                 'Optimization & Reporting',
                 'Day-to-day at global agencies',
                 'Kit to enter the job market',
+              ],
+              benefitsTitle: 'What do you achieve after the Sprint?',
+              benefits: [
+                {
+                  title: 'Technical platform knowledge',
+                  desc:  'Learn tools like CM360 and DV360, used by agencies and AdTech teams to manage digital campaigns.',
+                },
+                {
+                  title: 'Job-market-ready profile',
+                  desc:  'Get an optimized CV, a professional portfolio, and preparation for English interviews targeting global agencies.',
+                },
+                {
+                  title: 'Access to global opportunities',
+                  desc:  'Join the Sprinters community and access exclusive resources, networking, and vacancies shared by international companies and agencies.',
+                },
               ],
               cta:     'View Ad Operations Sprint',
               ctaHref: '#registro',

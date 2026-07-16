@@ -63,19 +63,20 @@ ul     { list-style: none; }
   margin-bottom: 16px;
 }
 
-/* ===== Buttons — pill solid (lime or purple) ===== */
+/* ===== Buttons — ALWAYS colored (lime or purple, never outline-only) ===== */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 28px;
+  padding: 14px 34px;
   border-radius: 9999px;
   font-family: var(--font-poppins);
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9rem;
+  letter-spacing: -0.01em;
   line-height: 1;
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
@@ -88,8 +89,8 @@ ul     { list-style: none; }
   color: var(--carbon);
 }
 .btn--lime:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(200, 241, 53, 0.32);
 }
 
 /* Purple — secondary accent */
@@ -98,8 +99,8 @@ ul     { list-style: none; }
   color: var(--white);
 }
 .btn--purple:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(139, 92, 246, 0.38);
 }
 
 /* ===== Scroll Animations ===== */
