@@ -15,7 +15,7 @@ export default function CTAFinal() {
           {t.title}
         </h2>
         <div className="cta-final__btns anim-ready" style={{ '--delay': '0.15s' }}>
-          <a href="#registro" className="btn btn--purple">
+          <a href="#registro" className="btn btn--purple btn--lg">
             {t.ctaPrimary}
           </a>
           <a href="#" className="btn--ghost btn--ghost-dark">

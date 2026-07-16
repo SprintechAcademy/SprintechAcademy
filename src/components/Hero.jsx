@@ -47,6 +47,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <div className="hero__fade" aria-hidden="true" />
     </section>
   );
 }
