@@ -15,16 +15,23 @@ export default function Navbar() {
         <a href="#" className="navbar__logo" onClick={() => setMenuOpen(false)}>
           <LandingLogo />
         </a>
+
         <ul className={`navbar__links${menuOpen ? ' navbar__links--open' : ''}`}>
           <li><a href="#" className="navbar__link" onClick={() => setMenuOpen(false)}>{t.sprinters}</a></li>
           <li><a href="#" className="navbar__link" onClick={() => setMenuOpen(false)}>{t.empresas}</a></li>
           <li><a href="#" className="navbar__link" onClick={() => setMenuOpen(false)}>{t.comunidad}</a></li>
         </ul>
+
         <div className="navbar__actions">
           <a href="/login" className="btn btn--purple navbar__cta" onClick={() => setMenuOpen(false)}>
             {t.cta}
           </a>
-          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>
+          <button
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
             <span></span><span></span><span></span>
           </button>
         </div>
