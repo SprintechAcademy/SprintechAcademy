@@ -43,19 +43,19 @@ function LoginForm() {
   return (
     <>
       {enrolled && (
-        <div className="mb-6 p-4 rounded-xl bg-lime/10 border border-lime/20 text-sm text-lime text-center">
+        <div className="mb-8 p-4 rounded-xl bg-lime/10 border border-lime/20 text-sm text-lime text-center">
           ¡Pago exitoso! Ingresa tu correo para acceder.
         </div>
       )}
 
-      <h1 className="text-2xl font-bold text-white tracking-tight mb-2 text-center">
+      <h1 className="text-3xl font-bold text-white tracking-tight mb-3 text-center">
         Accede a la plataforma
       </h1>
-      <p className="text-sm text-white/45 text-center mb-10">
+      <p className="text-sm text-white/50 text-center mb-10">
         Te enviamos un código de 6 dígitos a tu correo.
       </p>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <Input
           type="email"
           label="Correo electrónico"
@@ -67,16 +67,16 @@ function LoginForm() {
         />
 
         {error && (
-          <p className="text-sm text-red-400 text-center">{error}</p>
+          <p className="text-sm text-red-400 text-center -mt-2">{error}</p>
         )}
 
-        <Button type="submit" variant="lime" size="lg" loading={loading} className="w-full mt-2">
+        <Button type="submit" variant="lime" size="lg" loading={loading} className="w-full">
           Enviar código
         </Button>
       </form>
 
-      <p className="text-xs text-white/25 text-center mt-8">
-        ¿No tienes cuenta? Inscíbete en un reto o programa.
+      <p className="text-xs text-white/40 text-center mt-10">
+        ¿No tienes cuenta? Inscríbete en un reto o programa.
       </p>
     </>
   )
@@ -92,6 +92,14 @@ export default function LoginPage() {
         <Suspense>
           <LoginForm />
         </Suspense>
+        <div className="flex justify-center mt-10">
+          <a
+            href="/"
+            className="text-xs text-white/35 hover:text-white/60 transition-colors flex items-center gap-1.5"
+          >
+            ← Volver al inicio
+          </a>
+        </div>
       </div>
     </div>
   )

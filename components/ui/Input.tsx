@@ -13,13 +13,13 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 }
 
 const fieldBase =
-  'w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 text-sm transition-colors outline-none focus:border-purple focus:bg-white/8'
+  'w-full bg-white/8 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder:text-white/35 text-sm transition-colors outline-none focus:border-purple focus:bg-white/10'
 
 export function Input({ label, error, className = '', ...props }: InputProps) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-2">
       {label && (
-        <label className="text-xs font-medium text-white/55 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+        <label className="text-xs font-medium text-white/70 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
           {label}
         </label>
       )}
@@ -37,9 +37,9 @@ export function Select({
   ...props
 }: TextareaHTMLAttributes<HTMLSelectElement> & { label?: string; error?: string; children: React.ReactNode }) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-2">
       {label && (
-        <label className="text-xs font-medium text-white/55 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+        <label className="text-xs font-medium text-white/70 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
           {label}
         </label>
       )}
@@ -57,9 +57,9 @@ export function Select({
 
 export function Textarea({ label, error, className = '', ...props }: TextareaProps) {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-2">
       {label && (
-        <label className="text-xs font-medium text-white/55 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+        <label className="text-xs font-medium text-white/70 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
           {label}
         </label>
       )}

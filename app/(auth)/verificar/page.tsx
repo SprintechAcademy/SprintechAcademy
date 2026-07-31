@@ -72,7 +72,6 @@ function VerificarForm() {
         return
       }
 
-      // Sign in with the magic link token
       const { error: signInErr } = await supabase.auth.verifyOtp({
         token_hash: data.token_hash,
         type: 'magiclink',
@@ -116,63 +115,63 @@ function VerificarForm() {
 
   return (
     <>
-        <h1 className="text-2xl font-bold text-white tracking-tight mb-2 text-center">
-          Ingresa tu código
-        </h1>
-        <p className="text-sm text-white/45 text-center mb-2">
-          Enviamos un código de 6 dígitos a
-        </p>
-        <p className="text-sm text-white font-medium text-center mb-10">{email}</p>
+      <h1 className="text-3xl font-bold text-white tracking-tight mb-3 text-center">
+        Ingresa tu código
+      </h1>
+      <p className="text-sm text-white/50 text-center mb-2">
+        Enviamos un código de 6 dígitos a
+      </p>
+      <p className="text-sm text-white font-semibold text-center mb-10">{email}</p>
 
-        <div className="flex gap-2 justify-center mb-6" onPaste={handlePaste}>
-          {digits.map((d, i) => (
-            <input
-              key={i}
-              ref={el => { inputRefs.current[i] = el }}
-              type="text"
-              inputMode="numeric"
-              maxLength={1}
-              value={d}
-              onChange={e => handleDigit(i, e.target.value)}
-              onKeyDown={e => handleKeyDown(i, e)}
-              disabled={loading}
-              className="w-12 h-14 text-center text-xl font-bold text-white bg-white/5 border border-white/10 rounded-xl outline-none focus:border-purple transition-colors"
-            />
-          ))}
-        </div>
+      <div className="flex gap-3 justify-center mb-8" onPaste={handlePaste}>
+        {digits.map((d, i) => (
+          <input
+            key={i}
+            ref={el => { inputRefs.current[i] = el }}
+            type="text"
+            inputMode="numeric"
+            maxLength={1}
+            value={d}
+            onChange={e => handleDigit(i, e.target.value)}
+            onKeyDown={e => handleKeyDown(i, e)}
+            disabled={loading}
+            className="w-12 h-16 text-center text-2xl font-bold text-white bg-white/8 border border-white/20 rounded-xl outline-none focus:border-purple focus:bg-white/12 transition-colors"
+          />
+        ))}
+      </div>
 
-        {error && (
-          <p className="text-sm text-red-400 text-center mb-4">{error}</p>
-        )}
+      {error && (
+        <p className="text-sm text-red-400 text-center mb-4">{error}</p>
+      )}
 
-        {loading && (
-          <p className="text-sm text-white/45 text-center mb-4">Verificando...</p>
-        )}
+      {loading && (
+        <p className="text-sm text-white/45 text-center mb-4">Verificando...</p>
+      )}
 
-        <div className="text-center mt-6">
-          {resendCountdown > 0 ? (
-            <p className="text-xs text-white/30">
-              Reenviar código en {resendCountdown}s
-            </p>
-          ) : (
-            <button
-              onClick={handleResend}
-              disabled={resendLoading}
-              className="text-xs text-white/50 hover:text-white transition-colors underline underline-offset-2"
-            >
-              {resendLoading ? 'Enviando...' : 'Reenviar código'}
-            </button>
-          )}
-        </div>
-
-        <div className="text-center mt-4">
+      <div className="text-center mt-6">
+        {resendCountdown > 0 ? (
+          <p className="text-xs text-white/40">
+            Reenviar código en {resendCountdown}s
+          </p>
+        ) : (
           <button
-            onClick={() => router.push('/login')}
-            className="text-xs text-white/30 hover:text-white/60 transition-colors"
+            onClick={handleResend}
+            disabled={resendLoading}
+            className="text-xs text-white/55 hover:text-white transition-colors underline underline-offset-2"
           >
-            ← Cambiar correo
+            {resendLoading ? 'Enviando...' : 'Reenviar código'}
           </button>
-        </div>
+        )}
+      </div>
+
+      <div className="text-center mt-4">
+        <button
+          onClick={() => router.push('/login')}
+          className="text-xs text-white/40 hover:text-white/65 transition-colors"
+        >
+          ← Cambiar correo
+        </button>
+      </div>
     </>
   )
 }
@@ -187,6 +186,14 @@ export default function VerificarPage() {
         <Suspense>
           <VerificarForm />
         </Suspense>
+        <div className="flex justify-center mt-10">
+          <a
+            href="/"
+            className="text-xs text-white/35 hover:text-white/60 transition-colors flex items-center gap-1.5"
+          >
+            ← Volver al inicio
+          </a>
+        </div>
       </div>
     </div>
   )
