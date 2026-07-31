@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "vercel-build": "npm install --include=dev --prefix platform && npm run build --prefix platform && mkdir -p .vercel && cp -r platform/.vercel/output .vercel/",
+    "vercel-build": "npm install --include=dev --prefix platform && npm run build --prefix platform",
     "lint": "eslint .",
     "preview": "vite preview"
   },
