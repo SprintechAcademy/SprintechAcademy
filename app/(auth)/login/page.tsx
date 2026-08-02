@@ -43,7 +43,7 @@ function LoginForm() {
   return (
     <>
       {enrolled && (
-        <div className="mb-8 p-4 rounded-xl bg-lime/10 border border-lime/20 text-sm text-lime text-center">
+        <div className="mb-6 p-4 rounded-xl bg-lime/10 border border-lime/20 text-sm text-lime text-center">
           ¡Pago exitoso! Ingresa tu correo para acceder.
         </div>
       )}
@@ -51,11 +51,11 @@ function LoginForm() {
       <h1 className="text-3xl font-bold text-white tracking-tight mb-3 text-center">
         Accede a la plataforma
       </h1>
-      <p className="text-sm text-white/50 text-center mb-10">
+      <p className="text-sm text-white/50 text-center mb-8">
         Te enviamos un código de 6 dígitos a tu correo.
       </p>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <Input
           type="email"
           label="Correo electrónico"
@@ -67,7 +67,7 @@ function LoginForm() {
         />
 
         {error && (
-          <p className="text-sm text-red-400 text-center -mt-2">{error}</p>
+          <p className="text-sm text-red-400 text-center">{error}</p>
         )}
 
         <Button type="submit" variant="lime" size="lg" loading={loading} className="w-full">
@@ -75,7 +75,7 @@ function LoginForm() {
         </Button>
       </form>
 
-      <p className="text-xs text-white/40 text-center mt-10">
+      <p className="text-xs text-white/35 text-center mt-8">
         ¿No tienes cuenta? Inscríbete en un reto o programa.
       </p>
     </>
@@ -84,18 +84,34 @@ function LoginForm() {
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-carbon">
-      <div className="w-full max-w-sm">
-        <div className="flex justify-center mb-12">
+    <div className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-carbon overflow-hidden">
+      {/* Background glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(139,92,246,0.08) 0%, transparent 70%)',
+        }}
+      />
+
+      <div className="relative w-full max-w-sm">
+        {/* Logo */}
+        <div className="flex justify-center mb-10">
           <Logo href="/" />
         </div>
-        <Suspense>
-          <LoginForm />
-        </Suspense>
-        <div className="flex justify-center mt-10">
+
+        {/* Card */}
+        <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm px-8 py-10 shadow-xl shadow-black/40">
+          <Suspense>
+            <LoginForm />
+          </Suspense>
+        </div>
+
+        {/* Back link */}
+        <div className="flex justify-center mt-8">
           <a
             href="/"
-            className="text-xs text-white/35 hover:text-white/60 transition-colors flex items-center gap-1.5"
+            className="text-xs text-white/30 hover:text-white/55 transition-colors flex items-center gap-1.5"
           >
             ← Volver al inicio
           </a>

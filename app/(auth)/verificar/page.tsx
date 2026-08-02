@@ -3,7 +3,6 @@
 import { Suspense, useState, useRef, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Logo } from '@/components/platform/Logo'
-import { Button } from '@/components/ui/Button'
 import { createClient } from '@/lib/supabase/client'
 
 function VerificarForm() {
@@ -118,12 +117,12 @@ function VerificarForm() {
       <h1 className="text-3xl font-bold text-white tracking-tight mb-3 text-center">
         Ingresa tu código
       </h1>
-      <p className="text-sm text-white/50 text-center mb-2">
+      <p className="text-sm text-white/50 text-center mb-1">
         Enviamos un código de 6 dígitos a
       </p>
-      <p className="text-sm text-white font-semibold text-center mb-10">{email}</p>
+      <p className="text-sm text-white font-semibold text-center mb-8">{email}</p>
 
-      <div className="flex gap-3 justify-center mb-8" onPaste={handlePaste}>
+      <div className="flex gap-3 justify-center mb-6" onPaste={handlePaste}>
         {digits.map((d, i) => (
           <input
             key={i}
@@ -135,22 +134,22 @@ function VerificarForm() {
             onChange={e => handleDigit(i, e.target.value)}
             onKeyDown={e => handleKeyDown(i, e)}
             disabled={loading}
-            className="w-12 h-16 text-center text-2xl font-bold text-white bg-white/8 border border-white/20 rounded-xl outline-none focus:border-purple focus:bg-white/12 transition-colors"
+            className="w-12 h-14 text-center text-2xl font-bold text-white bg-white/8 border border-white/20 rounded-xl outline-none focus:border-purple focus:bg-white/12 transition-colors"
           />
         ))}
       </div>
 
       {error && (
-        <p className="text-sm text-red-400 text-center mb-4">{error}</p>
+        <p className="text-sm text-red-400 text-center mb-3">{error}</p>
       )}
 
       {loading && (
-        <p className="text-sm text-white/45 text-center mb-4">Verificando...</p>
+        <p className="text-sm text-white/45 text-center mb-3">Verificando...</p>
       )}
 
-      <div className="text-center mt-6">
+      <div className="text-center mt-6 flex flex-col gap-3">
         {resendCountdown > 0 ? (
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-white/35">
             Reenviar código en {resendCountdown}s
           </p>
         ) : (
@@ -162,12 +161,10 @@ function VerificarForm() {
             {resendLoading ? 'Enviando...' : 'Reenviar código'}
           </button>
         )}
-      </div>
 
-      <div className="text-center mt-4">
         <button
           onClick={() => router.push('/login')}
-          className="text-xs text-white/40 hover:text-white/65 transition-colors"
+          className="text-xs text-white/35 hover:text-white/60 transition-colors"
         >
           ← Cambiar correo
         </button>
@@ -178,18 +175,34 @@ function VerificarForm() {
 
 export default function VerificarPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-carbon">
-      <div className="w-full max-w-sm">
-        <div className="flex justify-center mb-12">
+    <div className="relative min-h-screen flex flex-col items-center justify-center px-4 py-16 bg-carbon overflow-hidden">
+      {/* Background glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 70% 50% at 50% 40%, rgba(139,92,246,0.08) 0%, transparent 70%)',
+        }}
+      />
+
+      <div className="relative w-full max-w-sm">
+        {/* Logo */}
+        <div className="flex justify-center mb-10">
           <Logo href="/" />
         </div>
-        <Suspense>
-          <VerificarForm />
-        </Suspense>
-        <div className="flex justify-center mt-10">
+
+        {/* Card */}
+        <div className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-sm px-8 py-10 shadow-xl shadow-black/40">
+          <Suspense>
+            <VerificarForm />
+          </Suspense>
+        </div>
+
+        {/* Back link */}
+        <div className="flex justify-center mt-8">
           <a
             href="/"
-            className="text-xs text-white/35 hover:text-white/60 transition-colors flex items-center gap-1.5"
+            className="text-xs text-white/30 hover:text-white/55 transition-colors flex items-center gap-1.5"
           >
             ← Volver al inicio
           </a>
