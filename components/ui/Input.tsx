@@ -13,18 +13,24 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 }
 
 const fieldBase =
-  'w-full bg-white/8 border border-white/20 rounded-xl px-4 py-3.5 text-white placeholder:text-white/35 text-sm transition-colors outline-none focus:border-purple focus:bg-white/10'
+  'w-full h-12 bg-white/6 border border-white/15 rounded-lg px-4 text-white placeholder:text-white/30 text-sm transition-all duration-200 outline-none focus:border-purple/70 focus:bg-white/10 focus:ring-2 focus:ring-purple/20'
 
 export function Input({ label, error, className = '', ...props }: InputProps) {
   return (
     <div className="flex flex-col gap-2">
       {label && (
-        <label className="text-xs font-medium text-white/70 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+        <label
+          className="text-xs font-semibold text-white/60 tracking-widest uppercase"
+          style={{ fontFamily: 'var(--font-syne)' }}
+        >
           {label}
         </label>
       )}
-      <input className={`${fieldBase} ${error ? 'border-red-500' : ''} ${className}`} {...props} />
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      <input
+        className={`${fieldBase} ${error ? 'border-red-500 focus:ring-red-500/20' : ''} ${className}`}
+        {...props}
+      />
+      {error && <p className="text-xs text-red-400 mt-0.5">{error}</p>}
     </div>
   )
 }
@@ -39,18 +45,21 @@ export function Select({
   return (
     <div className="flex flex-col gap-2">
       {label && (
-        <label className="text-xs font-medium text-white/70 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+        <label
+          className="text-xs font-semibold text-white/60 tracking-widest uppercase"
+          style={{ fontFamily: 'var(--font-syne)' }}
+        >
           {label}
         </label>
       )}
       <select
-        className={`${fieldBase} ${error ? 'border-red-500' : ''} ${className}`}
+        className={`${fieldBase} ${error ? 'border-red-500 focus:ring-red-500/20' : ''} ${className}`}
         style={{ backgroundImage: 'none' }}
         {...(props as React.SelectHTMLAttributes<HTMLSelectElement>)}
       >
         {children}
       </select>
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-xs text-red-400 mt-0.5">{error}</p>}
     </div>
   )
 }
@@ -59,15 +68,18 @@ export function Textarea({ label, error, className = '', ...props }: TextareaPro
   return (
     <div className="flex flex-col gap-2">
       {label && (
-        <label className="text-xs font-medium text-white/70 tracking-wide uppercase" style={{ fontFamily: 'var(--font-syne)' }}>
+        <label
+          className="text-xs font-semibold text-white/60 tracking-widest uppercase"
+          style={{ fontFamily: 'var(--font-syne)' }}
+        >
           {label}
         </label>
       )}
       <textarea
-        className={`${fieldBase} resize-none min-h-[100px] ${error ? 'border-red-500' : ''} ${className}`}
+        className={`w-full bg-white/6 border border-white/15 rounded-lg px-4 py-3 text-white placeholder:text-white/30 text-sm transition-all duration-200 outline-none focus:border-purple/70 focus:bg-white/10 focus:ring-2 focus:ring-purple/20 resize-none min-h-[100px] ${error ? 'border-red-500 focus:ring-red-500/20' : ''} ${className}`}
         {...props}
       />
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-xs text-red-400 mt-0.5">{error}</p>}
     </div>
   )
 }
