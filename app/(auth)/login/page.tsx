@@ -36,7 +36,7 @@ function LoginForm() {
   }
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-8">
 
       {/* Heading */}
       <div className="text-center">
@@ -45,20 +45,18 @@ function LoginForm() {
             ¡Pago exitoso! Ingresa tu correo para acceder.
           </div>
         )}
-        <h1
-          className="font-bold tracking-tight leading-[1.1] mb-4 text-white"
-          style={{ fontSize: 'clamp(2.2rem, 6vw, 3.5rem)' }}
-        >
-          Accede a la{' '}
-          <span className="text-lime">plataforma.</span>
+        <h1 className="font-bold tracking-tight leading-tight mb-3">
+          <span className="text-white text-4xl sm:text-5xl block">Accede a la</span>
+          <span className="text-lime text-4xl sm:text-5xl block">plataforma.</span>
         </h1>
-        <p className="text-base text-white/45 leading-relaxed max-w-sm mx-auto">
-          Te enviamos un código de 6 dígitos a tu correo. Sin contraseña, sin fricción.
+        <p className="text-sm text-white/45 leading-relaxed max-w-xs mx-auto">
+          Te enviamos un código de 6 dígitos a tu correo.
+          <br />Sin contraseña, sin fricción.
         </p>
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input
           type="email"
           placeholder="tu@correo.com"
@@ -66,17 +64,19 @@ function LoginForm() {
           onChange={e => setEmail(e.target.value)}
           required
           autoFocus
-          className="w-full h-14 bg-white/[0.06] border border-white/10 rounded-2xl px-5 text-white placeholder:text-white/35 text-base transition-all duration-200 outline-none focus:border-purple/60 focus:bg-white/[0.09] focus:ring-2 focus:ring-purple/15"
+          className="w-full h-13 bg-white/[0.06] border border-white/10 rounded-2xl px-5 py-0 text-white placeholder:text-white/35 text-sm leading-none transition-all duration-200 outline-none focus:border-purple/60 focus:bg-white/[0.09] focus:ring-2 focus:ring-purple/15"
+          style={{ height: '52px' }}
         />
 
         {error && (
-          <p className="text-sm text-red-400 px-1">{error}</p>
+          <p className="text-xs text-red-400 px-1">{error}</p>
         )}
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full h-14 rounded-full bg-lime text-carbon font-bold text-base tracking-tight hover:brightness-105 active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full rounded-full bg-lime text-carbon font-bold text-sm tracking-tight hover:brightness-105 active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          style={{ height: '52px' }}
         >
           {loading ? (
             <>
@@ -87,20 +87,19 @@ function LoginForm() {
             'Enviar código'
           )}
         </button>
-
-        <p className="text-xs text-white/30 text-center pt-1">
-          Acceso vía código de un solo uso · sin contraseña
-        </p>
       </form>
 
-      {/* Footer */}
-      <div className="flex flex-col items-center gap-3">
-        <p className="text-xs text-white/25">
+      {/* Helper + footer */}
+      <div className="flex flex-col items-center gap-2 text-center">
+        <p className="text-xs text-white/30">
+          Acceso vía código de un solo uso · sin contraseña
+        </p>
+        <p className="text-xs text-white/22">
           ¿No tienes cuenta? Inscríbete en un reto o programa.
         </p>
         <a
           href="/"
-          className="text-xs text-white/25 hover:text-white/55 transition-colors duration-200"
+          className="text-xs text-white/28 hover:text-white/55 transition-colors duration-200 mt-1"
         >
           ← Volver al inicio
         </a>
@@ -120,17 +119,17 @@ export default function LoginPage() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 35%, rgba(139,92,246,0.07) 0%, transparent 65%)',
+            'radial-gradient(ellipse 55% 40% at 50% 35%, rgba(139,92,246,0.07) 0%, transparent 65%)',
         }}
       />
 
-      <div className="relative w-full max-w-lg flex flex-col gap-8">
+      <div className="relative w-full max-w-sm flex flex-col gap-8">
 
         {/* Logo + eyebrow */}
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-3">
           <Logo href="/" />
           <p
-            className="text-xs tracking-widest uppercase text-white/30 font-medium"
+            className="text-[10px] tracking-widest uppercase text-white/28 font-medium"
             style={{ fontFamily: 'var(--font-syne)' }}
           >
             Plataforma · Acceso seguro
